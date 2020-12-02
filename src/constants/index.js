@@ -1,0 +1,5 @@
+export const ADD_TODO = 'ADD_TODO'
+export const CHANGE_TODO_VALUE = 'CHANGE_TODO_VALUE'
+export const CHANGE_TODO_CHECKBOX = 'CHANGE_TODO_CHECKBOX'
+
+export const DARK_THEME = 'DARK_THEME'

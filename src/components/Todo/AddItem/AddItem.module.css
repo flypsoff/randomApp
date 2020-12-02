@@ -1,0 +1,12 @@
+.addItemContainer {
+    padding: 10px;
+    background-color: rgb(154, 154, 154);
+    border-radius: 7px;
+}
+
+
+.addItemContainer textarea {
+    width: 99.2%;
+    height: 50px;
+    resize: none;
+}

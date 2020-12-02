@@ -1,8 +1,14 @@
 import React from 'react'
+import AddItem from './AddItem/AddItem'
+import Items from './Items/Items'
+import styles from './Todo.module.css'
 
-const Todo = () => {
+const Todo = (props) => {
     return (
-        <h1>Todo</h1>
+        <div className={styles.todoContainer}>
+            <AddItem />
+            <Items />
+        </div>
     )
 }
 

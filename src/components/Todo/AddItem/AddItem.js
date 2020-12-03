@@ -1,34 +1,27 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { addTodo, todoValue } from './../../../actions'
 import styles from './AddItem.module.css'
+import { NavLink } from 'react-router-dom'
 
-const AddItem = (props) => {
-
-    const onChangeValue = (arg) => {
-        props.onChangeValue(arg)
-    }
+const AddItem = ({onChangeCurrentTodoValue, onAddTodo, currentTodoValue}) => {
 
     const handleTodoClick = () => {
-        props.onAddTodo(props.todoValue)
-        onChangeValue('')
+        if(currentTodoValue.trim() !== '') {
+            onAddTodo(currentTodoValue)
+        }
+        onChangeCurrentTodoValue('')
     }
-
+    
     return (
         <div className={styles.addItemContainer}>
-            <textarea maxLength="200" onChange={(e) => onChangeValue(e.target.value)} value={props.todoValue} />
+            <NavLink to={`/todo/history`}>
+                <button>To history!</button>
+            </NavLink>
+            <br />
+            <textarea maxLength="200" onChange={(e) => onChangeCurrentTodoValue(e.target.value)} value={currentTodoValue} />
             <br />
             <button onClick={handleTodoClick}>Send</button>
         </div>
     )
 }
 
-export default connect(
-    state => ({
-        todoValue: state.todoValue
-    }),
-    dispatch => ({
-        onChangeValue: currentValue => dispatch(todoValue(currentValue)),
-        onAddTodo: text => dispatch(addTodo(text))
-    })
-)(AddItem)
+export default AddItem

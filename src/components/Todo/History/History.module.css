@@ -1,0 +1,20 @@
+.mainHistoryContainer {
+    margin: 5px;
+}
+
+.historyContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: rgb(154, 154, 154);
+    border-radius: 7px;
+}
+
+.textSpan {
+    width: 90%;
+}
+
+.dateSpan {
+    width: 10%;
+}

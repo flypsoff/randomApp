@@ -6,16 +6,16 @@ import { NavLink } from 'react-router-dom'
 const Navbar = () => {
     return (
         <ul className={styles.navItems}>
-            <NavLink to="/" exact>
+            <NavLink to='/'>
                 <li>Home</li>
             </NavLink>
-            <NavLink to='todo'>
+            <NavLink to='/todo'>
                 <li>Todo</li>
             </NavLink>
-            <NavLink to='shop'>
+            <NavLink to='/shop'>
                 <li>Shop</li>
             </NavLink>
-            <NavLink to='other'>
+            <NavLink to='/other'>
                 <li>Other</li>
             </NavLink>
         </ul>

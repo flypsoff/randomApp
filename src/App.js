@@ -1,8 +1,9 @@
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Shop from './components/Shop/Shop'
-import Todo from './components/Todo/Todo'
+import TodoContainer from './container/TodoContainer'
 import Other from './components/Other/Other'
+import History from './components/Todo/History/History'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 
@@ -11,11 +12,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route path={'/'} exact render={() => <Home />} />
-        <Route path={'/todo'} render={() => <Todo />} />
-        <Route path={'/shop'} render={() => <Shop />} />
+        <Route exact path={'/'} render={() => <Home />} />
+        <Route exact path={'/todo'} render={() => <TodoContainer />} />
+        <Route exact path={'/todo/history'} render={() => <History />}/>
+        <Route path={'/shop'}  render={() => <Shop />} />
         <Route path={'/other'} render={() => <Other />} />
-        <Redirect from={'/'} to={'/'}/>
+        <Redirect from={'/'} to={'/'} />
       </Switch>
     </BrowserRouter>
   )

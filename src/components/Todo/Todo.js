@@ -6,8 +6,12 @@ import styles from './Todo.module.css'
 const Todo = (props) => {
     return (
         <div className={styles.todoContainer}>
-            <AddItem />
-            <Items />
+            <AddItem
+                onChangeCurrentTodoValue={props.onChangeCurrentTodoValue}
+                onAddTodo={props.onAddTodo}
+                currentTodoValue={props.currentTodoValue}
+            />
+            <Items todos={props.todos} onTodoChecked={props.onTodoChecked} onDeleteTodo={props.onDeleteTodo}/>
         </div>
     )
 }

@@ -14,7 +14,7 @@ const Items = (props) => {
                     <span style={item.completed ? {textDecoration:'line-through'} : {textDecoration:'none'}}>
                         {item.text}
                     </span>
-                    <input type='checkbox' onClick={() => handleTodoChangeCheckbox(item.id)}/>
+                    <input type='checkbox' checked={item.completed} onClick={() => handleTodoChangeCheckbox(item.id)}/>
                     <button onClick={() => props.onDeleteTodo(item.id)}>Delete</button>
                 </div>
             ))}

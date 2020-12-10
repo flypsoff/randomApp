@@ -1,6 +1,6 @@
 .addItemContainer {
     padding: 10px;
-    background-color: rgb(154, 154, 154);
+    background-color: rgb(105, 195, 189);
     border-radius: 7px;
 }
 
@@ -9,4 +9,14 @@
     width: 99.2%;
     height: 70px;
     resize: none;
+}
+
+.history {
+    display: inline-flex;
+    justify-content: flex-start;
+}
+
+.history button {
+    margin: 5px 0;
+    margin-right: 5px;
 }

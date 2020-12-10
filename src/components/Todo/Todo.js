@@ -10,6 +10,7 @@ const Todo = (props) => {
                 onChangeCurrentTodoValue={props.onChangeCurrentTodoValue}
                 onAddTodo={props.onAddTodo}
                 currentTodoValue={props.currentTodoValue}
+                onDeleteAllTodo={props.onDeleteAllTodo}
             />
             <Items todos={props.todos} onTodoChecked={props.onTodoChecked} onDeleteTodo={props.onDeleteTodo}/>
         </div>

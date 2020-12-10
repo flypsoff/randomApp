@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { todoChecked, changeCurrentTodoValue, addTodo, deleteTodo } from '../actions'
+import { todoChecked, changeCurrentTodoValue, addTodo, deleteTodo, deleteAllTodo } from '../actions'
 import Todo from '../components/Todo/Todo'
 
 const mapStateToProps = (state) => ({   
@@ -8,10 +8,11 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onTodoChecked: idItem => {dispatch(todoChecked(idItem))},
+    onTodoChecked: idItem => dispatch(todoChecked(idItem)),
     onChangeCurrentTodoValue: currentTodoValue => dispatch(changeCurrentTodoValue(currentTodoValue)),
-    onAddTodo: text => dispatch(addTodo(text)),
-    onDeleteTodo: id => dispatch(deleteTodo(id))
+    onAddTodo: title => dispatch(addTodo(title)),
+    onDeleteTodo: id => dispatch(deleteTodo(id)),
+    onDeleteAllTodo: () => dispatch(deleteAllTodo())
 })
 
 const TodoContainer = connect(mapStateToProps, mapDispatchToProps)(Todo)

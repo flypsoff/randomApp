@@ -3,17 +3,18 @@ import {
     ADD_TODO,
     CHANGE_TODO_CHECKBOX,
     CHANGE_CURRENT_TODO_VALUE,
-    DELETE_TODO
+    DELETE_TODO,
+    DELETE_ALL_TODO
 } from './../constants'
 
 let initialTodosState = {
     currentTodoValue: '',
     currentTodos: [
-        { text: 'Hello Kitty', completed: false, id: 10002 },
-        { text: 'Welcome to the party', completed: false, id: 10001 }
+        { title: 'Hello Kitty', completed: false, id: 10002 },
+        { title: 'Welcome to the party', completed: false, id: 10001 }
     ],
     deletedTodos: [
-        { text: 'My name is deleted object', completed: false, id: 10000 }
+        { title: 'My name is deleted object', completed: false, id: 10000 }
     ]
 }
 
@@ -26,7 +27,7 @@ export const todos = (state = initialTodosState, action) => {
                 ...state,
                 currentTodos: [
                     {
-                        text: action.text,
+                        title: action.title,
                         completed: false,
                         id: lastId
                     },
@@ -53,12 +54,21 @@ export const todos = (state = initialTodosState, action) => {
                 currentTodoValue: action.currentValue
             })
         case DELETE_TODO:
-            let [deletedTodo] = state.currentTodos.filter(item => item.id === action.key)
+            let [ deletedTodo ] = state.currentTodos.filter(item => item.id === action.key)
             return ({
                 ...state,
                 currentTodos: [...state.currentTodos.filter(item => item.id !== deletedTodo.id)],
                 deletedTodos: [
                     deletedTodo,
+                    ...state.deletedTodos
+                ]
+            })
+        case DELETE_ALL_TODO: 
+            return ({
+                ...state, 
+                currentTodos: [],
+                deletedTodos: [
+                    ...state.currentTodos,
                     ...state.deletedTodos
                 ]
             })

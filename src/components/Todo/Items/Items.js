@@ -12,9 +12,9 @@ const Items = (props) => {
                 <div className={styles.itemsContainer} 
                     key={item.id}>
                     <span style={item.completed ? {textDecoration:'line-through'} : {textDecoration:'none'}}>
-                        {item.text}
+                        {item.title}
                     </span>
-                    <input type='checkbox' checked={item.completed} onClick={() => handleTodoChangeCheckbox(item.id)}/>
+                    <input type='checkbox' checked={item.completed} onChange={() => handleTodoChangeCheckbox(item.id)}/>
                     <button onClick={() => props.onDeleteTodo(item.id)}>Delete</button>
                 </div>
             ))}

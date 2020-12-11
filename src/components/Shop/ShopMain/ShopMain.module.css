@@ -1,0 +1,6 @@
+.shopMain {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    background-color: yellow;
+}

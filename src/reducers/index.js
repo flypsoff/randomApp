@@ -1,10 +1,10 @@
 import { combineReducers  } from 'redux'
 import todos from './todos'
-import themes from './themes'
+import shops from './shops'
 
 const reducers = combineReducers({
     todos,
-    themes,
+    shops,
 })
 
 export default reducers

@@ -1,6 +1,20 @@
 .shopMain {
-    display: flex;
-    flex-wrap: wrap;
     width: 80%;
     background-color: yellow;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.showMore {
+    box-sizing: border-box;
+    text-align: center;
+    margin: 20px;
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.showMore:hover {
+    cursor: pointer;
+    background-color: green;
 }

@@ -1,13 +1,13 @@
 import React from 'react'
-import ShopMainContainer from '../../container/ShopMainContainer'
 import ShopSidebar from './ShopSidebar/ShopSidebar'
+import ShopMain from './ShopMain/ShopMain'
 import styles from './Shop.module.css'
 
 const Shop = () => {
     return (
         <div className={styles.shopContainer}>  
             <ShopSidebar />
-            <ShopMainContainer />
+            <ShopMain />
         </div>
     )
 }

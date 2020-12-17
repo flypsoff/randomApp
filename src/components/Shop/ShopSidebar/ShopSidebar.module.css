@@ -1,4 +1,5 @@
 .shopSidebar {
     width: 20%;
     background-color: red;
+    position: sticky;
 }

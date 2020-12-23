@@ -1,5 +1,10 @@
 .shopSidebar {
     width: 20%;
+    padding: 20px;
     background-color: red;
-    position: sticky;
+}
+
+.item {
+    padding: 10px 0;
+    text-align: start;
 }

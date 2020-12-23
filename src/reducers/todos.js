@@ -18,7 +18,7 @@ let initialTodosState = {
     ]
 }
 
-export const todos = (state = initialTodosState, action) => {
+const todos = (state = initialTodosState, action) => {
     switch (action.type) {
         case ADD_TODO:
             let lastId = nanoid(5)

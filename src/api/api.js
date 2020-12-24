@@ -17,6 +17,6 @@ const localAPI = axios.create({
     baseURL: 'http://localhost:3333/api/'
 })
 
-export const getCarsAPI = (path) => {
+export const getDetailAPI = (path) => {
     return localAPI.get(path)
 }

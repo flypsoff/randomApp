@@ -10,9 +10,7 @@ const ShopSidebar = (props) => {
                     <div className={styles.item} key={item.id}>
                         <Link
                             to={`/shop/${item.name.toLowerCase()}`}
-                            onClick={async () => {
-                               props.getCurrentBrandThunk(item.name.toLowerCase())
-                            }}>
+                            >
                             {item.name}
                         </Link>
                     </div>

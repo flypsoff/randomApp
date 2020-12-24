@@ -1,40 +1,46 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
-import { getCarsThunk, getCurrentBrandThunk } from '../actions'
+import { withRouter, useParams } from 'react-router-dom'
+import { getCarsThunk, getBrandsThunk } from '../actions'
 import Shop from '../components/Shop/Shop'
 
 
-// зробити state = props.match.params.brand коли буде мінятися params.brand то ми будемо перередрювати
+const ShopContainer = ({ brands, cars, onGetCars, onGetBrands, ...props }) => {
 
-const ShopContainer = ({brands, cars, onGetCars, getCurrentBrandThunk, ...props}) => {
+    const { brand } = useParams()
+
+    const [ /* state */ , setState] = useState(brand)
 
     useEffect(() => {
-        if(!props.match.params.brand) {
-            onGetCars()
-        } else {
-            getCurrentBrandThunk(props.match.params.brand)
+        setState(brand)
+        if(!brands.length) {
+            onGetBrands()
         }
 
-        console.log('a');
+        if (!brand) {
+            onGetCars()
+        } else {
+            onGetCars(brand)
+        }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [brand])
 
 
     return (
-        <Shop brands={brands} cars={cars} getCurrentBrandThunk={getCurrentBrandThunk}/>
+        <Shop brands={brands} cars={cars} />
     )
 }
 
 
-const mapStateToProps = (state) => ({   
+const mapStateToProps = (state) => ({
     brands: state.shops.brands,
     cars: state.shops.cars
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onGetCars: () => dispatch(getCarsThunk()),
-    getCurrentBrandThunk: (brand) => dispatch(getCurrentBrandThunk(brand))
+    onGetCars: (brand) => dispatch(getCarsThunk(brand)),
+    onGetBrands: () => dispatch(getBrandsThunk()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ShopContainer))

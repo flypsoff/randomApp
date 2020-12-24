@@ -7,7 +7,7 @@ const Shop = (props) => {
 
     return (
         <div className={styles.shopContainer}>  
-            <ShopSidebar brands={props.brands} getCurrentBrandThunk={props.getCurrentBrandThunk}/>
+            <ShopSidebar brands={props.brands} />
             <ShopMain cars={props.cars} />
         </div>
     )

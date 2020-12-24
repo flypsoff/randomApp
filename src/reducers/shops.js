@@ -1,6 +1,6 @@
 import {
-    GET_CARS_BRANDS,
-    GET_CURRENT_BRAND,
+    GET_BRANDS,
+    GET_CARS,
 } from '../constants'
 
 let initialShopState = {
@@ -10,15 +10,15 @@ let initialShopState = {
 
 const shops = (state = initialShopState, action) => {
     switch (action.type) {
-        case GET_CARS_BRANDS:
-            return {
-                brands: action.brands,
-                cars: action.cars
-            }
-        case GET_CURRENT_BRAND:
+        case GET_CARS:
             return {
                 ...state,
                 cars: action.cars
+            }
+        case GET_BRANDS:
+            return {
+                ...state,
+                brands: action.brands
             }
         default:
             return state

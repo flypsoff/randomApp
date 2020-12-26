@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, useParams } from 'react-router-dom'
 import { getCarsThunk, getBrandsThunk } from '../actions'
 import Shop from '../components/Shop/Shop'
+import Preloader from '../components/commons/Preloader'
 
-
-const ShopContainer = ({ brands, cars, onGetCars, onGetBrands, ...props }) => {
-
+const ShopContainer = ({ loading, brands, cars, onGetCars, onGetBrands, ...props }) => {
     const { brand } = useParams()
-
-    const [ /* state */ , setState] = useState(brand)
-
     useEffect(() => {
-        setState(brand)
-        if(!brands.length) {
+        if (!brands.length) {
             onGetBrands()
         }
 
@@ -28,14 +23,15 @@ const ShopContainer = ({ brands, cars, onGetCars, onGetBrands, ...props }) => {
 
 
     return (
-        <Shop brands={brands} cars={cars} />
+        loading ? <Preloader /> : <Shop brands={brands} cars={cars} loading={loading}/>
     )
 }
 
 
 const mapStateToProps = (state) => ({
     brands: state.shops.brands,
-    cars: state.shops.cars
+    cars: state.shops.cars,
+    loading: state.shops.loading
 })
 
 const mapDispatchToProps = (dispatch) => ({

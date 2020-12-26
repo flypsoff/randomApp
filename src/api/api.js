@@ -20,3 +20,8 @@ const localAPI = axios.create({
 export const getDetailAPI = (path) => {
     return localAPI.get(path)
 }
+
+
+export const getCarAPI = (id) => {
+    return localAPI.get(`car/${id}`)
+}

@@ -7,6 +7,7 @@ import History from './components/Todo/History/History'
 
 import TodoContainer from './container/TodoContainer'
 import CarContainer from './container/CarContainer'
+import CartContainer from './container/CartContainer'
 
 import withSuspense from './hoc/withSuspense'
 
@@ -22,9 +23,9 @@ function App() {
         <Route exact path={'/todo'} render={() => <TodoContainer />} />
         <Route exact path={'/todo/history'} render={() => <History />} />
         <Route exact path={'/car/:id?'} render={withSuspense(CarContainer)} />
+        <Route exact path={'/shop/cart'} render={() => <CartContainer />} />
         <Route exact path={'/shop/:brand?'} render={withSuspense(ShopContainer)} />
         <Route path={'/contactus'} render={withSuspense(ContactUsContainer)} />
-
         <Redirect from={'/'} to={'/'} />
       </Switch>
     </BrowserRouter>

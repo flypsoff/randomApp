@@ -1,43 +1,57 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { useParams, withRouter } from 'react-router-dom'
-import { getCurrentCarThunk, getCurrentCarError } from '../actions'
+import { getCurrentCarThunk, addToShoppingCart } from '../actions'
 
 import Car from './../components/Shop/Car'
 
-const CarContainer = (props) => {
+const CarContainer = ({ car, loading, shoppingCart, onGetCar, onGetToShoppingCart, shoppingCartId }) => {
     const { id } = useParams()
+
+    const [error, setError] = useState({title: '', message: ''})
+
+    const [inCart, setInCart] = useState('')
 
     const getCar = async (id) => {
         try {
-            await props.onGetCar(id)
-        } catch (err) {
-            props.onGetCurrentCarError({
-                title: err.message, 
+            await onGetCar(id)
+        } catch (err) { // need delete error
+            setError({
+                title: err.message,
                 message: `Car with id ${id} is not found`
             })
         }
     }
-    useEffect(() =>  {
+
+    useEffect(() => {
         getCar(id)
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
+    const addToCart = (car) => {
+        if(!shoppingCartId.includes(car.carID)) {
+            onGetToShoppingCart(car)
+        } else {
+            setInCart('This car is already in your cart')
+        }
+    }
+
     return (
-        <Car carInfo={props.car} carError={props.error} loading={props.loading}/>
+        <Car carInfo={car} carError={error} loading={loading} addToCart={addToCart} inCart={inCart}/>
     )
 }
 
 const mapStateToProps = (state) => ({
     car: state.shops.currentCar,
-    error: state.shops.currentCarError,
-    loading: state.shops.loading
+    loading: state.shops.loading,
+    shoppingCart: state.shops.shoppingCart,
+    shoppingCartId: state.shops.shoppingCartId
 })
 
 const mapDispatchToProps = (dispatch) => ({
     onGetCar: (carID) => dispatch(getCurrentCarThunk(carID)),
-    onGetCurrentCarError: (error) => dispatch(getCurrentCarError(error))
+    onGetToShoppingCart: (shoppingCart) => dispatch(addToShoppingCart(shoppingCart))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CarContainer))

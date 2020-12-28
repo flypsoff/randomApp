@@ -23,7 +23,7 @@ const ShopContainer = ({ loading, brands, cars, onGetCars, onGetBrands, ...props
 
 
     return (
-        loading ? <Preloader /> : <Shop brands={brands} cars={cars} loading={loading}/>
+        loading ? <Preloader /> : <Shop brands={brands} cars={cars} loading={loading} />
     )
 }
 
@@ -31,7 +31,7 @@ const ShopContainer = ({ loading, brands, cars, onGetCars, onGetBrands, ...props
 const mapStateToProps = (state) => ({
     brands: state.shops.brands,
     cars: state.shops.cars,
-    loading: state.shops.loading
+    loading: state.shops.loading,
 })
 
 const mapDispatchToProps = (dispatch) => ({

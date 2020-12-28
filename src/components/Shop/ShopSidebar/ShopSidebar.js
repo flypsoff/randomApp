@@ -6,6 +6,11 @@ const ShopSidebar = (props) => {
     return (
         <div className={styles.shopSidebar}>
             <div>
+                <Link to={'/shop/cart'}>
+                    Cart
+                </Link>
+            </div>
+            <div>
                 {props.brands.map(item => (
                     <div className={styles.item} key={item.id}>
                         <Link

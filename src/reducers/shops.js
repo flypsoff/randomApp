@@ -4,18 +4,16 @@ import {
     SHOP_LOADING_START,
     SHOP_LOADING_FINISH,
     GET_CURRENT_CAR,
-    GET_CURRENT_CAR_ERROR
+    ADD_TO_SHOPPING_CART
 } from '../constants'
 
 let initialShopState = {
     brands: [],
     cars: [],
     currentCar: {},
-    currentCarError: {
-        title: '',
-        message: ''
-    },
-    loading: false
+    loading: false,
+    shoppingCart: [],
+    shoppingCartId : []
 }
 
 const shops = (state = initialShopState, action) => {
@@ -44,17 +42,23 @@ const shops = (state = initialShopState, action) => {
         case GET_CURRENT_CAR:
             return {
                 ...state,
-                currentCar: {...action.currentCar},
-                currentCarError: {title: '', message: ''}
+                currentCar: { ...action.currentCar }
             }
-        case GET_CURRENT_CAR_ERROR:
+        case ADD_TO_SHOPPING_CART:
             return {
                 ...state,
-                currentCarError: action.error
+                shoppingCart: [
+                    action.shoppingCart,
+                    ...state.shoppingCart
+                ],
+                shoppingCartId: [
+                    action.shoppingCart.carID,
+                    ...state.shoppingCartId
+                ]
             }
         default:
             return state
     }
 }
- 
+
 export default shops

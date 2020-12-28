@@ -33,7 +33,7 @@ export const getCurrentCarThunk = (carID) => async (dispatch) => {
     dispatch(loadingFinish())
 }
 
-export const getCurrentCarError = (error) => ({type: types.GET_CURRENT_CAR_ERROR, error})
-
 export const loadingStart = () => ({type: types.SHOP_LOADING_START})
 export const loadingFinish = () => ({type: types.SHOP_LOADING_FINISH})
+
+export const addToShoppingCart = (shoppingCart) => ({type: types.ADD_TO_SHOPPING_CART, shoppingCart})

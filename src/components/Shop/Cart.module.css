@@ -1,0 +1,10 @@
+.cartContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart {
+    padding: 10px;
+    margin: 10px;
+    background-color: coral;
+}

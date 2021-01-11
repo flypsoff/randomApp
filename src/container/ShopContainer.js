@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, useParams } from 'react-router-dom'
-import { getCarsThunk, getBrandsThunk } from '../actions'
+import { getCarsThunk, getBrandsThunk } from '../actions/shops'
 import Shop from '../components/Shop/Shop'
 import Preloader from '../components/commons/Preloader'
 

@@ -1,13 +1,5 @@
 import axios from 'axios'
 
-const jsonAPI = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com/'
-})
-
-export const getItemAPI = (path) => {
-    return jsonAPI.get(path)
-}
-
 const localAPI = axios.create({
     baseURL: 'http://localhost:3333/api/'
 })

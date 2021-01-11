@@ -1,12 +1,19 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import styles from './Logo.module.css'
 
-const Logo = () => {
+const Logo = (props) => {
+    const name = useSelector(state => state.user.currentUser.name) 
+    
     return (
-        <p className={styles.logoHeight}> 
+        <p className={styles.logoContainer}> 
             <span className={styles.logo}><b>Logo</b></span>
             <br />
-            <small>Welcome Vlad</small>
+            {
+              name ? <small className={styles.logedIn}>Welcome {name}</small>
+                : <small>Welcome Guest</small>
+            }
+            
         </p>
     )
 }

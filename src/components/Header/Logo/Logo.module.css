@@ -2,6 +2,11 @@
     font-size: 1.7em;
 }
 
-.logoHeight {
+.logoContainer {
+    padding-left: 3%;
     line-height: 90%;
+}
+
+.logedIn {
+    color:#840477;
 }

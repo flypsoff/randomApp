@@ -4,7 +4,8 @@ import {
     SHOP_LOADING_START,
     SHOP_LOADING_FINISH,
     GET_CURRENT_CAR,
-    ADD_TO_SHOPPING_CART
+    ADD_TO_SHOPPING_CART,
+    DELETE_WITH_SHOPPING_CART
 } from '../constants'
 
 let initialShopState = {
@@ -55,6 +56,12 @@ const shops = (state = initialShopState, action) => {
                     action.shoppingCart.carID,
                     ...state.shoppingCartId
                 ]
+            }
+        case DELETE_WITH_SHOPPING_CART:
+            return {
+                ...state,
+                shoppingCart: state.shoppingCart.filter(item => item.carID !== action.carID),
+                shoppingCartId : state.shoppingCartId.filter(item => item !== action.carID)
             }
         default:
             return state

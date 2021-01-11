@@ -7,6 +7,7 @@ import Preloader from '../components/commons/Preloader'
 
 const ShopContainer = ({ loading, brands, cars, onGetCars, onGetBrands, ...props }) => {
     const { brand } = useParams()
+    
     useEffect(() => {
         if (!brands.length) {
             onGetBrands()

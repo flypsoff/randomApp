@@ -10,7 +10,6 @@ const CarContainer = ({ car, loading, shoppingCart, onGetCar, onGetToShoppingCar
     const { id } = useParams()
 
     const [error, setError] = useState({title: '', message: ''})
-
     const [inCart, setInCart] = useState('')
 
     const getCar = async (id) => {

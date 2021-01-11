@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Cart.module.css'
 
-const Cart = ({ shoppingCart }) => {
+const Cart = ({ shoppingCart, onDeleteWithShoppingCart }) => {
     if (!shoppingCart.length) {
         return <h2>Your cart is empty:(</h2>
     }
@@ -15,6 +15,7 @@ const Cart = ({ shoppingCart }) => {
                     <h3>Model : {item.model}</h3>
                     <h3>Year : {item.year}</h3>
                     <h3>Price : {item.price}$</h3>
+                    <button onClick={() => onDeleteWithShoppingCart(item.carID)}>Remove from cart</button>
                 </div>
             ))}
         </div>

@@ -1,0 +1,12 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 10px; 
+}
+
+.mainContainer input {
+    padding: 5px;
+    width: 285px;
+    margin: 3px 0;
+}

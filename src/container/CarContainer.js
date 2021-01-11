@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { useParams, withRouter } from 'react-router-dom'
-import { getCurrentCarThunk, addToShoppingCart } from '../actions'
+import { getCurrentCarThunk } from '../actions/shops'
+import { addToShoppingCart } from '../actions/cart'
 
 import Car from './../components/Shop/Car'
 
@@ -15,9 +16,10 @@ const CarContainer = ({ car, loading, shoppingCart, onGetCar, onGetToShoppingCar
     const getCar = async (id) => {
         try {
             await onGetCar(id)
-        } catch (err) { // need delete error
+        } catch (error) { // need delete error
+            console.log(error);
             setError({
-                title: err.message,
+                title: error.message,
                 message: `Car with id ${id} is not found`
             })
         }

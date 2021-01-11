@@ -1,5 +1,6 @@
 .headerContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 5px 30px;
     background-color: rgb(73, 161, 155);
 }

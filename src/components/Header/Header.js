@@ -3,11 +3,11 @@ import styles from './Header.module.css'
 import Logo from './Logo/Logo'
 import Navbar from './Navbar/Navbar'
 
-const Header = () => {
+const Header = ({isAuth}) => {
     return (
         <div className={styles.headerContainer}>
             <Logo />
-            <Navbar />
+            <Navbar isAuth={isAuth}/>
         </div>
     )
 }

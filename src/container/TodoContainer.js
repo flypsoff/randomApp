@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { todoChecked, changeCurrentTodoValue, addTodo, deleteTodo, deleteAllTodo } from '../actions'
+import { todoChecked, changeCurrentTodoValue, addTodo, deleteTodo, deleteAllTodo } from '../actions/todos'
 import Todo from '../components/Todo/Todo'
 
 const mapStateToProps = (state) => ({   

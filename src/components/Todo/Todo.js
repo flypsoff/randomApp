@@ -3,16 +3,15 @@ import AddItem from './AddItem/AddItem'
 import Items from './Items/Items'
 import styles from './Todo.module.css'
 
-const Todo = (props) => {
+const Todo = ({todos, currentTodo, todoValue, addTodo, isAuth}) => {  
     return (
         <div className={styles.todoContainer}>
             <AddItem
-                onChangeCurrentTodoValue={props.onChangeCurrentTodoValue}
-                onAddTodo={props.onAddTodo}
-                currentTodoValue={props.currentTodoValue}
-                onDeleteAllTodo={props.onDeleteAllTodo}
+                todoValue={todoValue}
+                currentTodo={currentTodo}
+                addTodo={addTodo}
             />
-            <Items todos={props.todos} onTodoChecked={props.onTodoChecked} onDeleteTodo={props.onDeleteTodo}/>
+            <Items todos={todos} isAuth={isAuth}/>
         </div>
     )
 }

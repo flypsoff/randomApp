@@ -1,13 +1,38 @@
 import {
-    CHANGE_CURRENT_TODO_VALUE,
+    SET_CURRENT_TODOS,
+    CURRENT_TODO,
     ADD_TODO,
-    CHANGE_TODO_CHECKBOX,
-    DELETE_TODO,
-    DELETE_ALL_TODO
+    SET_COMPLETED_TODOS,
+    DELETE_ALL_TODOS
 } from './../constants'
 
-export const changeCurrentTodoValue = (currentValue) => ({type:CHANGE_CURRENT_TODO_VALUE, currentValue})
-export const addTodo = (title) => ({type: ADD_TODO, title})
-export const todoChecked = (idItem) => ({type:CHANGE_TODO_CHECKBOX, idItem})
-export const deleteTodo = (key) => ({type: DELETE_TODO, key})
-export const deleteAllTodo = () => ({type: DELETE_ALL_TODO})
+import {
+    getCurrentTodosAPI,
+    getCompletedTodosAPI
+} from './../api/todosAPI'
+
+export const setCurrentTodos = (current) => ({type: SET_CURRENT_TODOS, current})
+export const setCompletedTodos = (completed) => ({type: SET_COMPLETED_TODOS, completed})
+
+export const currentTodo = (todo) => ({type: CURRENT_TODO, todo})
+export const addTodo = (todo) => ({type: ADD_TODO, todo})
+
+export const setCurrentTodosThunk = (email) => async dispatch => {
+    try {
+        const res = await getCurrentTodosAPI(email)
+        dispatch(setCurrentTodos(res.data.todos))
+    } catch (e) {
+        console.log(e.response.data.message)
+    }
+}
+
+export const setCompletedTodosThunk = (email) => async dispatch => {
+    try {
+        const res = await getCompletedTodosAPI(email)
+        dispatch(setCompletedTodos(res.data.todos))
+    } catch (e) {
+        console.log(e.response.data.message)
+    }
+}
+
+export const deleteAllTodos = () => ({type: DELETE_ALL_TODOS})

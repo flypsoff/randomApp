@@ -1,16 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../actions/users";
+import { deleteAllTodos } from '../actions/todos'
 import Account from '../components/auth/Account/Account'
 
 const AccountContainer = (props) => {
+    const handleLogout = () => {
+        props.onlogout()
+        props.deleteTodos()
+    }
+
     return (
-        <Account handleLogout={props.onlogout}/>
+        <Account handleLogout={handleLogout} user={props.user}/>
     )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    onlogout: () => dispatch(logout())
+const mapStateToProps = (state) => ({
+    user: state.user.currentUser
 })
 
-export default connect(null, mapDispatchToProps)(AccountContainer)
+const mapDispatchToProps = (dispatch) => ({
+    onlogout: () => dispatch(logout()),
+    deleteTodos: () => dispatch(deleteAllTodos())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AccountContainer)

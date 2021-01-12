@@ -10,7 +10,6 @@ const RegistrationContainer = (props) => {
 
     const handleRegistration = async (value, dispatch) => {
         try {
-
             const result = await registrationAPI(value)
             const message = result.data.message
             alert(message)

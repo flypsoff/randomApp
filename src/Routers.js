@@ -15,14 +15,14 @@ import withSuspense from './hoc/withSuspense'
 
 const ShopContainer = React.lazy(() => import('./container/ShopContainer'))
 const TodoContainer = React.lazy(() => import('./container/TodoContainer'))
-const History = React.lazy(() => import('./components/Todo/History/History'))
+const CompletedContainer = React.lazy(() => import('./container/CompletedContainer'))
 
 const Routers = (props) => {
     return (
         <Switch>
             <Route exact path={'/'} render={() => <Home />} />
-            <Route exact path={'/todo'} render={withSuspense(TodoContainer)} />
-            <Route exact path={'/todo/history'} render={withSuspense(History)} />
+            <Route exact path={'/todo/current'} render={withSuspense(TodoContainer)} />
+            <Route exact path={'/todo/completed'} render={withSuspense(CompletedContainer)} />
             <Route exact path={'/car/:id?'} render={withSuspense(CarContainer)} />
             <Route exact path={'/shop/cart'} render={() => <CartContainer />} />
             <Route exact path={'/shop/:brand?'} render={withSuspense(ShopContainer)} />

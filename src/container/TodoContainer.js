@@ -1,19 +1,34 @@
+import { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { todoChecked, changeCurrentTodoValue, addTodo, deleteTodo, deleteAllTodo } from '../actions/todos'
+import { setCurrentTodosThunk, currentTodo, addTodo } from '../actions/todos'
 import Todo from '../components/Todo/Todo'
 
-const mapStateToProps = (state) => ({   
+const TodoContainer = (props) => {
+
+    useEffect(() => {
+        if(props.isAuth) {
+           props.setCurrentTodos(props.email)
+        }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.isAuth, props.email])
+
+    return (
+        <Todo {...props}/>
+    )
+}
+
+const mapStateToProps = (state) => ({
+    isAuth: state.user.isAuth,
+    email: state.user.currentUser.email,
     todos: state.todos.currentTodos,
-    currentTodoValue: state.todos.currentTodoValue
+    todoValue: state.todos.currentTodoValue
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onTodoChecked: idItem => dispatch(todoChecked(idItem)),
-    onChangeCurrentTodoValue: currentTodoValue => dispatch(changeCurrentTodoValue(currentTodoValue)),
-    onAddTodo: title => dispatch(addTodo(title)),
-    onDeleteTodo: id => dispatch(deleteTodo(id)),
-    onDeleteAllTodo: () => dispatch(deleteAllTodo())
+    currentTodo: (todo) => dispatch(currentTodo(todo)),
+    addTodo: (todo) => dispatch(addTodo(todo)),
+    setCurrentTodos: (email) => dispatch(setCurrentTodosThunk(email))
 })
 
-const TodoContainer = connect(mapStateToProps, mapDispatchToProps)(Todo)
-export default TodoContainer
+export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer)

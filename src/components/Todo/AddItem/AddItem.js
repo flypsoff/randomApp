@@ -2,27 +2,32 @@ import React from 'react'
 import styles from './AddItem.module.css'
 import { NavLink } from 'react-router-dom'
 
-const AddItem = ({onChangeCurrentTodoValue, onAddTodo, currentTodoValue, onDeleteAllTodo}) => {
+const AddItem = ({ currentTodo, todoValue, addTodo }) => {
 
-    const handleTodoClick = () => {
-        if(currentTodoValue.trim() !== '') {
-            onAddTodo(currentTodoValue)
+    const handleClick = async () => {
+        try {
+            if (todoValue.trim() !== '') {
+               addTodo(todoValue)
+            }
+            currentTodo('')
+        } catch (error) {
+            console.log(error.response.data.message);
         }
-        onChangeCurrentTodoValue('')
+
     }
-    
+
     return (
         <div className={styles.addItemContainer}>
             <div className={styles.history}>
-                <NavLink to={`/todo/history`}>
-                    <button>To history!</button>
+                <NavLink to={`/todo/completed`}>
+                    <button>Completed</button>
                 </NavLink>
-                <button onClick={() => onDeleteAllTodo()}>Delete all</button>
+                <button >Complete all</button>
             </div>
             <br />
-            <textarea maxLength="200" onChange={(e) => onChangeCurrentTodoValue(e.target.value)} value={currentTodoValue} />
+            <textarea maxLength="200" value={todoValue} onChange={(e) => currentTodo(e.target.value)} />
             <br />
-            <button onClick={handleTodoClick}>Send</button>
+            <button onClick={handleClick}>Send</button>
         </div>
     )
 }

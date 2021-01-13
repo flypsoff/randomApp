@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Header from './components/Header/Header'
 import Routers from './Routers'
-
 import { authorization } from './actions/users'
 
 function App() {

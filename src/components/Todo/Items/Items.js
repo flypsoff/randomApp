@@ -1,7 +1,11 @@
 import React from 'react'
 import styles from './Items.module.css'
 
-const Items = ({todos, isAuth}) => {
+const Items = ({todos, isAuth, onAddCompletedTodo}) => {
+
+    const handleClick = (id) => {
+        onAddCompletedTodo(id)
+    }
 
     return (
         <div>
@@ -11,7 +15,7 @@ const Items = ({todos, isAuth}) => {
                     <span style={item.completed ? {textDecoration:'line-through'} : {textDecoration:'none'}}>
                         {item.title}
                     </span>
-                    <button >Complete</button>
+                    <button onClick={() => handleClick(item.id)}>Complete</button>
                 </div>
             ))}
         </div>

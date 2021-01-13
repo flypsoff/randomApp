@@ -8,20 +8,9 @@
     margin-top: 5px;
     padding: 10px;
     border-radius: 7px;
+    background-color: rgb(105, 195, 189);
 }
 
 .textSpan {
     width: 90%;
-}
-
-.dateSpan {
-    width: 10%;
-}
-
-.nonCompletedTodo {
-    background-color: rgb(249, 85, 101);
-}
-
-.completedTodo {
-    background-color: rgb(109, 245, 122);
 }

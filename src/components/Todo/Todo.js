@@ -1,17 +1,20 @@
 import React from 'react'
 import AddItem from './AddItem/AddItem'
+import Cases from './Cases/Cases'
 import Items from './Items/Items'
 import styles from './Todo.module.css'
 
-const Todo = ({todos, currentTodo, todoValue, addTodo, isAuth}) => {  
+const Todo = ({todos, onCurrentTodo, todoValue, isAuth, onAddCurrentTodo, onAddCompletedTodo}) => {  
     return (
         <div className={styles.todoContainer}>
+            <Cases />
             <AddItem
                 todoValue={todoValue}
-                currentTodo={currentTodo}
-                addTodo={addTodo}
+                onCurrentTodo={onCurrentTodo}
+                isAuth={isAuth}
+                onAddCurrentTodo={onAddCurrentTodo}
             />
-            <Items todos={todos} isAuth={isAuth}/>
+            <Items todos={todos} isAuth={isAuth} onAddCompletedTodo={onAddCompletedTodo}/>
         </div>
     )
 }

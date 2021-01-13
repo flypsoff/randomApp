@@ -4,19 +4,19 @@
     border-radius: 7px;
 }
 
-
 .addItemContainer textarea {
     width: 99.2%;
     height: 70px;
     resize: none;
 }
 
-.history {
+.completed {
     display: inline-flex;
     justify-content: flex-start;
 }
 
-.history button {
+.completed button {
     margin: 5px 0;
     margin-right: 5px;
 }
+

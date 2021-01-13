@@ -1,11 +1,4 @@
-import { nanoid } from 'nanoid'
-import {
-    SET_CURRENT_TODOS,
-    CURRENT_TODO,
-    ADD_TODO,
-    SET_COMPLETED_TODOS,
-    DELETE_ALL_TODOS
-} from './../constants'
+import * as types from './../constants'
 
 let initialTodosState = {
     currentTodoValue: '',
@@ -15,35 +8,44 @@ let initialTodosState = {
 
 const todos = (state = initialTodosState, action) => {
     switch (action.type) {
-        case ADD_TODO:
-            let lastId = nanoid(5)
+        case types.DELETE_COMPLETED_TODO: 
+            return {
+                ...state,
+                completedTodos: [
+                    ...action.newCompletedTodos
+                ]
+            }
+        case types.ADD_COMPLETED_TODO:
             return {
                 ...state,
                 currentTodos: [
-                    {
-                        title: action.todo,
-                        completed: false,
-                        id: lastId
-                    },
+                    ...action.newCurrentTodos
+                ]
+            }
+        case types.ADD_CURRENT_TODO: 
+            return {
+                ...state,
+                currentTodos: [
+                    action.todo,
                     ...state.currentTodos
                 ]
             }
-        case CURRENT_TODO:
+        case types.CURRENT_TODO:
             return {
                 ...state,
                 currentTodoValue: action.todo
             }
-        case SET_CURRENT_TODOS:
+        case types.SET_CURRENT_TODOS:
             return {
                 ...state,
                 currentTodos: [...action.current]
             }
-        case SET_COMPLETED_TODOS:
+        case types.SET_COMPLETED_TODOS:
             return {
                 ...state,
                 completedTodos: [...action.completed]
             }
-        case DELETE_ALL_TODOS: 
+        case types.DELETE_ALL_TODOS: 
             return {
                 ...state,
                 currentTodos: [],

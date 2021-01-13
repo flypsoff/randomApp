@@ -1,6 +1,7 @@
 import React from 'react'
-import Cart from '../components/Shop/Cart'
 import { connect } from 'react-redux'
+
+import Cart from '../components/Shop/Cart'
 import { deleteWithShoppingCart } from './../actions/cart'
 
 const CartContainer = (props) => {

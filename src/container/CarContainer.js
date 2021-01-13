@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { useParams, withRouter } from 'react-router-dom'
+
 import { getCurrentCarThunk } from '../actions/shops'
 import { addToShoppingCart } from '../actions/cart'
-
 import Car from './../components/Shop/Car'
 
 const CarContainer = ({ car, loading, shoppingCart, onGetCar, onGetToShoppingCart, shoppingCartId }) => {

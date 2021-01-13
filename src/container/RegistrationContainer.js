@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { reset } from 'redux-form'
+
 import { registrationAPI } from '../api/api'
 import Registration from '../components/auth/Registration/Registration'
 

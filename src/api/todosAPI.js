@@ -2,34 +2,43 @@ import axios from 'axios'
 import { nanoid } from 'nanoid'
 
 const api = axios.create({
-    baseURL: 'http://localhost:3333/todos',
-    headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
+    baseURL: 'http://localhost:3333/todos'
 })
 
 export const getCurrentTodosAPI = () => {
-    return api.get('/current')
+    return api.get('/current', {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+    }})
 }
 
 export const getCompletedTodosAPI = () => {
-    return api.get('/completed')
+    return api.get('/completed', {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+    }})
 }
 
-export const addCurrentTodosAPI = (currentTodo) => {
-    let lastId = nanoid(5)
+export const addTodosAPI = (currentTodo) => {
+    let id = nanoid(5)
     const todo = {
         title: currentTodo,
         completed: false,
-        id: lastId
+        id: id
     }
-    return api.patch('/current/add', {todo})
+    return api.patch('/current', {todo}, {
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    })
 }
 
 export const addCompletedTodosAPI = (id) => {
-    return api.patch('/completed/add', {id})
+    return api.patch('/completed', {id}, {
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    })
 }
 
 export const deleteCompletedTodosAPI = (id) => {
-    return api.patch('/completed/delete', {id})
+    return api.patch('/completed/delete', {id}, {
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    })
 }

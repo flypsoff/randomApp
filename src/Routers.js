@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 import withSuspense from './hoc/withSuspense'
 
@@ -11,31 +11,27 @@ const ShopContainer = React.lazy(() => import('./container/ShopContainer'))
 const TodoContainer = React.lazy(() => import('./container/TodoContainer'))
 const CompletedContainer = React.lazy(() => import('./container/CompletedContainer'))
 
-const Routers = (props) => {
+const Routers = ({ isAuth }) => {
     return (
         <Switch>
             <Route exact path={'/'} render={() => <Home />} />
-            { props.isAuth 
-                ? <Route exact path={'/todo/current'} render={withSuspense(TodoContainer)} />
-                : <Redirect from={'/todo/current'} to={'/login'} />
-            }
-            { props.isAuth
-                ? <Route exact path={'/todo/completed'} render={withSuspense(CompletedContainer)} />
-                : <Redirect from={'/todo/completed'} to={'/login'} />
-            }
-            { props.isAuth
-                ? <Route exact path={'/account'} render={() => <container.AccountContainer />} />
-                : <Redirect from={'/account'} to={'/login'} />
-            }
-
-            {!props.isAuth && <Route exact path={'/login'} render={() => <container.LoginContainer />} />}
-            {!props.isAuth && <Route exact path={'/registration'} render={() => <container.RegistrationContainer />} />}
-
             <Route exact path={'/car/:id?'} render={withSuspense(container.CarContainer)} />
             <Route exact path={'/shop/cart'} render={() => <container.CartContainer />} />
             <Route exact path={'/shop/:brand?'} render={withSuspense(ShopContainer)} />
-            
-            <Redirect from={'/'} to={'/'} />
+
+            <Route exact path={'/todos/current'} render={withSuspense(TodoContainer)} />
+            <Route exact path={'/todos/completed'} render={withSuspense(CompletedContainer)} />
+
+            <Route exact path='/account'>
+                {!isAuth ? <Redirect to='login'/> :<container.AccountContainer />}
+            </Route>
+
+            <Route exact path='/login'>
+                {isAuth ? <Redirect to='/account'/> : <container.LoginContainer />}
+            </Route>
+            <Route exact path='/registration'>
+                {isAuth ? <Redirect to='/account' /> : <container.RegistrationContainer />}
+            </Route>
         </Switch>
     )
 }

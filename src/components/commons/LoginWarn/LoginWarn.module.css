@@ -1,0 +1,10 @@
+.mainContainer {
+    margin-top: 5px;
+    padding: 15px;
+    color: black;
+    background-color: #ff9800;
+}
+
+.warnContainer {
+    text-align: center;
+}

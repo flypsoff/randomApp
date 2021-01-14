@@ -17,8 +17,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header isAuth={isAuth}/>
-      <Routers isAuth={isAuth}/>
+      <Header isAuth={isAuth} />
+      <Routers isAuth={isAuth} />
     </BrowserRouter>
   )
 }

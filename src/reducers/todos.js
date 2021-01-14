@@ -2,54 +2,28 @@ import * as types from './../constants'
 
 let initialTodosState = {
     currentTodoValue: '',
-    currentTodos: [],
-    completedTodos: []
+    todos: []
 }
 
 const todos = (state = initialTodosState, action) => {
     switch (action.type) {
         case types.DELETE_COMPLETED_TODO: 
+        case types.COMPLETE_TODO:
+        case types.SET_TODOS:
+        case types.ADD_TODO: 
             return {
                 ...state,
-                completedTodos: [
-                    ...action.newCompletedTodos
-                ]
+                todos: action.payload
             }
-        case types.ADD_COMPLETED_TODO:
+        case types.CURRENT_TODO_VALUE:
             return {
                 ...state,
-                currentTodos: [
-                    ...action.newCurrentTodos
-                ]
+                currentTodoValue: action.payload
             }
-        case types.ADD_CURRENT_TODO: 
+        case types.LOGOUT_TODOS:
             return {
                 ...state,
-                currentTodos: [
-                    action.todo,
-                    ...state.currentTodos
-                ]
-            }
-        case types.CURRENT_TODO:
-            return {
-                ...state,
-                currentTodoValue: action.todo
-            }
-        case types.SET_CURRENT_TODOS:
-            return {
-                ...state,
-                currentTodos: [...action.current]
-            }
-        case types.SET_COMPLETED_TODOS:
-            return {
-                ...state,
-                completedTodos: [...action.completed]
-            }
-        case types.DELETE_ALL_TODOS: 
-            return {
-                ...state,
-                currentTodos: [],
-                completedTodos: []
+                todos: []
             }
         default:
             return state

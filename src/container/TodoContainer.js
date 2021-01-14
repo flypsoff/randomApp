@@ -1,35 +1,45 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { setCurrentTodosThunk, currentTodo, addCurrentTodoThunk, addCompletedTodoThunk } from '../actions/todos'
+import { setTodosThunk, currentTodo, addTodoThunk, completeTodoThunk } from '../actions/todos'
+import LogginWarn from '../components/commons/LoginWarn/LoginWarn'
 import Todo from '../components/Todo/Todo'
 
 const TodoContainer = (props) => {
 
     useEffect(() => {
-        if(props.isAuth) {
-           props.onSetCurrentTodos()
+        if (props.isAuth) {
+            props.onSetTodos()
         }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.isAuth])
 
+
+    if (!props.isAuth) {
+        return (
+            <LogginWarn>
+                Sorry, but if you want use todo you need to login!
+            </LogginWarn>
+        )
+    }
+
     return (
-        <Todo {...props}/>
+        <Todo {...props} />
     )
 }
 
 const mapStateToProps = (state) => ({
     isAuth: state.user.isAuth,
-    todos: state.todos.currentTodos,
+    todos: state.todos.todos,
     todoValue: state.todos.currentTodoValue
 })
 
 const mapDispatchToProps = (dispatch) => ({
     onCurrentTodo: (todo) => dispatch(currentTodo(todo)),
-    onSetCurrentTodos: () => dispatch(setCurrentTodosThunk()),
-    onAddCurrentTodo: (todo) => dispatch(addCurrentTodoThunk(todo)),
-    onAddCompletedTodo: (id) => dispatch(addCompletedTodoThunk(id))
+    onSetTodos: () => dispatch(setTodosThunk()),
+    onAddTodo: (todo) => dispatch(addTodoThunk(todo)),
+    onCompleteTodo: (id) => dispatch(completeTodoThunk(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer)

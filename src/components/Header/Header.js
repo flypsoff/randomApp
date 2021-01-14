@@ -7,7 +7,7 @@ const Header = ({isAuth}) => {
     return (
         <div className={styles.headerContainer}>
             <Logo />
-            <Navbar isAuth={isAuth}/>
+            <Navbar isAuth={isAuth} />
         </div>
     )
 }

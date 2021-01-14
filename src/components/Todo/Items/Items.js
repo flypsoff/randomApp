@@ -1,12 +1,11 @@
 import React from 'react'
 import styles from './Items.module.css'
 
-const Items = ({todos, isAuth, onAddCompletedTodo}) => {
+const Items = ({todos, isAuth, onCompleteTodo}) => {
 
     const handleClick = (id) => {
-        onAddCompletedTodo(id)
+        onCompleteTodo(id)
     }
-
     return (
         <div>
             {isAuth && todos && todos.map((item) => (

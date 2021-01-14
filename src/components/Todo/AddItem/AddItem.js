@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './AddItem.module.css'
 
-const AddItem = ({ onCurrentTodo, todoValue, onAddCurrentTodo }) => {
+const AddItem = ({ onCurrentTodo, todoValue, onAddTodo }) => {
 
     const handleClick = () => {
         try {
             if (todoValue.trim() !== '') {
-                onAddCurrentTodo(todoValue)
+                onAddTodo(todoValue)
             }
             onCurrentTodo('')
         } catch (error) {
@@ -19,7 +19,7 @@ const AddItem = ({ onCurrentTodo, todoValue, onAddCurrentTodo }) => {
         <div className={styles.addItemContainer}>
             <textarea maxLength="200" value={todoValue} onChange={(e) => onCurrentTodo(e.target.value)} />
             <br />
-            <button onClick={handleClick}>Send</button>
+            <button onClick={handleClick}>Add todo</button>
         </div >
     )
 }

@@ -12,20 +12,13 @@ const Navbar = ({ isAuth }) => {
             <NavLink to='/shop'>
                 <li>Shop</li>
             </NavLink>
-            <NavLink to='/todo/current'>
+            <NavLink to='/todos/current'>
                 <li>Todo</li>
             </NavLink>
             {
-                !isAuth &&
-                <NavLink to='/login'>
-                    <li>My account</li>
-                </NavLink>
-            }
-            {
-                isAuth &&
-                <NavLink to='/account'>
-                    <li>My account</li>
-                </NavLink>
+                isAuth 
+                ? <NavLink to='/account'><li>My account</li></NavLink> 
+                : <NavLink to='/login'><li>My account</li></NavLink> 
             }
 
         </ul>

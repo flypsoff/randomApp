@@ -6,7 +6,7 @@ import styles from './Cases.module.css'
 const Cases = (props) => {
     return (
         <div className={styles.casesContainer}>
-            <NavLink to={`/todo/completed`}>
+            <NavLink to={`/todos/completed`}>
                 <button>To completed</button>
             </NavLink>
             <button >Complete all</button>

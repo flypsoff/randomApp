@@ -9,14 +9,3 @@
     height: 70px;
     resize: none;
 }
-
-.completed {
-    display: inline-flex;
-    justify-content: flex-start;
-}
-
-.completed button {
-    margin: 5px 0;
-    margin-right: 5px;
-}
-

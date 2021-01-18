@@ -12,8 +12,8 @@ export const getCurrentTodosAPI = () => {
     }})
 }
 
-export const getCompletedTodosAPI = () => {
-    return api.get('/completed', {
+export const getDeletedTodosAPI = () => {
+    return api.get('/deleted', {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
     }})
@@ -31,14 +31,20 @@ export const addTodosAPI = (currentTodo) => {
     })
 }
 
-export const addCompletedTodosAPI = (id) => {
-    return api.patch('/completed', {id}, {
+export const addDeleteTodosAPI = (id) => {
+    return api.patch('/delete', {id}, {
         headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
 }
 
-export const deleteCompletedTodosAPI = (id) => {
-    return api.patch('/completed/delete', {id}, {
+export const deleteDeletedTodosAPI = (id) => {
+    return api.patch('/deleted/delete', {id}, {
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    })
+}
+
+export const changeCompleteTodosAPI = (checked, id) => {
+    return api.patch('/current/change', {checked, id}, {
         headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
 }

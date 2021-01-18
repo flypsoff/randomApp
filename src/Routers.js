@@ -9,7 +9,7 @@ import * as container from './container'
 
 const ShopContainer = React.lazy(() => import('./container/ShopContainer'))
 const TodoContainer = React.lazy(() => import('./container/TodoContainer'))
-const CompletedContainer = React.lazy(() => import('./container/CompletedContainer'))
+const DeletedContainer = React.lazy(() => import('./container/DeletedContainer'))
 
 const Routers = ({ isAuth }) => {
     return (
@@ -19,8 +19,8 @@ const Routers = ({ isAuth }) => {
             <Route exact path={'/shop/cart'} render={() => <container.CartContainer />} />
             <Route exact path={'/shop/:brand?'} render={withSuspense(ShopContainer)} />
 
-            <Route exact path={'/todos/current'} render={withSuspense(TodoContainer)} />
-            <Route exact path={'/todos/completed'} render={withSuspense(CompletedContainer)} />
+            <Route exact path={'/todos'} render={withSuspense(TodoContainer)} />
+            <Route exact path={'/todos/deleted'} render={withSuspense(DeletedContainer)} />
 
             <Route exact path='/account'>
                 {!isAuth ? <Redirect to='login'/> :<container.AccountContainer />}

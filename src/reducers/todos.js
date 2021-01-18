@@ -2,13 +2,20 @@ import * as types from './../constants'
 
 let initialTodosState = {
     currentTodoValue: '',
-    todos: []
+    todos: [],
+    deletedTodos: []
 }
 
 const todos = (state = initialTodosState, action) => {
     switch (action.type) {
-        case types.DELETE_COMPLETED_TODO: 
-        case types.COMPLETE_TODO:
+        case types.SET_DELETED_TODOS:
+        case types.DELETE_DELETED_TODO:
+            return {
+                ...state,
+                deletedTodos: action.payload
+            }
+        case types.CHANGE_COMPLETE:
+        case types.DELETE_TODO:
         case types.SET_TODOS:
         case types.ADD_TODO: 
             return {

@@ -14,7 +14,8 @@ const Registration = ({ handleSubmit, errorMessage}) => {
                     <Field name='email' component={InputRender} type='text' placeholder='email' />
                     <Field name='password' component={InputRender} type='password' placeholder='password' />
                     <Field name='name' component={InputRender} type='text' placeholder='name' />
-                    <Field name='age' component={InputRender} type='text' placeholder='age' />
+                    <Field name='surname' component={InputRender} type='text' placeholder='surname' />
+                    <Field name='birthday' component={InputRender} type='date' placeholder='birthday' />
                     <Field name='country' component={InputRender} type='text' placeholder='country' />
                     <button>Registration</button>
                 </form>

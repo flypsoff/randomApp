@@ -8,7 +8,6 @@ const RegistrationContainer = (props) => {
 
     const [errorMessage, setErrorMessage] = useState([])
 
-
     const handleRegistration = async (value, dispatch) => {
         try {
             const result = await registrationAPI(value)

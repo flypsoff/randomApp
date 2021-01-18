@@ -1,0 +1,31 @@
+.mainContainer {
+    width: 75%;
+    margin: 10px auto;
+}
+
+.info>div{
+    margin-top: 10px;
+}
+
+.info>div, .userSecutiry>div, .account{
+    padding: 10px 20px;
+    background-color: white;
+}
+
+.userData>div:not(:first-child), .userSecutiry>div:not(:first-child) {
+    border-top: 1px solid silver;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item:not(:first-child) {
+    border-top: 1px solid silver;
+
+}
+
+.item {
+    padding: 10px 20px;
+}

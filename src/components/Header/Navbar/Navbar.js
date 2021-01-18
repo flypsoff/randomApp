@@ -12,7 +12,7 @@ const Navbar = ({ isAuth }) => {
             <NavLink to='/shop'>
                 <li>Shop</li>
             </NavLink>
-            <NavLink to='/todos/current'>
+            <NavLink to='/todos'>
                 <li>Todo</li>
             </NavLink>
             {

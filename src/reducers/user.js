@@ -1,6 +1,7 @@
 import {
     SET_USER,
-    LOGOUT
+    LOGOUT,
+    CNANGE_FIELD
 } from '../constants'
 
 let initialState = {
@@ -10,7 +11,7 @@ let initialState = {
 
 const user = (state = initialState, action) => {
     switch (action.type) {
-        case SET_USER: 
+        case SET_USER:
             return {
                 ...state,
                 currentUser: action.payload,
@@ -22,6 +23,14 @@ const user = (state = initialState, action) => {
                 ...state,
                 currentUser: {},
                 isAuth: false
+            }
+        case CNANGE_FIELD:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    [action.field]: action.payload
+                }
             }
         default:
             return state

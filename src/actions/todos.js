@@ -4,6 +4,7 @@ import * as api from './../api/todosAPI'
 export const logoutTodos = () => ({type: types.LOGOUT_TODOS})
 
 export const setTodos = (payload) => ({type: types.SET_TODOS, payload})
+
 export const setTodosThunk = () => async dispatch => {
     try {
         const res = await api.getCurrentTodosAPI()
@@ -25,31 +26,41 @@ export const addTodoThunk = (currentTodo) => async dispatch => {
     }
 }
 
-export const completeTodos = (payload) => ({type: types.COMPLETE_TODO, payload})
-export const completeTodoThunk = (id) => async dispatch => {
+export const deleteTodos = (payload) => ({type: types.DELETE_TODO, payload})
+export const deleteTodoThunk = (id) => async dispatch => {
     try {
-        const res = await api.addCompletedTodosAPI(id)
-        dispatch(completeTodos(res.data.todos))
+        const res = await api.addDeleteTodosAPI(id)
+        dispatch(deleteTodos(res.data.todos))
+    } catch (e) {
+        console.log(e.response.data.message)
+    }
+}
+export const setDeletedTodos = (payload) => ({type: types.SET_DELETED_TODOS, payload})
+export const setDeletedTodosThunk = () => async dispatch => {
+    try {
+        const res = await api.getDeletedTodosAPI()
+        dispatch(setDeletedTodos(res.data.deletedTodos))
     } catch (e) {
         console.log(e.response.data.message)
     }
 }
 
-export const setCompletedTodosThunk = () => async dispatch => {
+export const deleteDeletedTodos = (payload) => ({type: types.DELETE_DELETED_TODO, payload})
+export const deleteDeletedTodosThunk = (id) => async dispatch => {
     try {
-        const res = await api.getCompletedTodosAPI()
-        dispatch(setTodos(res.data.todos))
+        const res = await api.deleteDeletedTodosAPI(id)
+        dispatch(deleteDeletedTodos(res.data.deletedTodos))
     } catch (e) {
         console.log(e.response.data.message)
     }
 }
 
-export const deleteCompletedTodos = (payload) => ({type: types.DELETE_COMPLETED_TODO, payload})
-export const deleteCompletedTodosThunk = (id) => async dispatch => {
+export const changeComplete = (payload) => ({type: types.CHANGE_COMPLETE, payload})
+export const changeCompleteThunk = (checked, id) => async dispatch => {
     try {
-        const res = await api.deleteCompletedTodosAPI(id)
-        dispatch(deleteCompletedTodos(res.data.deletedTodos))
-    } catch (e) {
-        // console.log(e.response.data.message)
+        const res = await api.changeCompleteTodosAPI(checked, id)
+        dispatch(changeComplete(res.data.todos))
+    } catch (error) {
+        
     }
 }

@@ -2,16 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../actions/users";
 import { logoutTodos } from '../actions/todos'
+import { changeFieldThunk, changeEmailThunk, changePasswordThunk } from "../actions/account";
 import Account from '../components/auth/Account/Account'
 
-const AccountContainer = (props) => {
+const AccountContainer = ({onLogout, onLogoutTodos, ...props}) => {
     const handleLogout = () => {
-        props.onLogout()
-        props.onLogoutTodos()
+        onLogout()
+        onLogoutTodos()
     }
 
     return (
-        <Account handleLogout={handleLogout} user={props.user}/>
+        <Account handleLogout={handleLogout} {...props}/>
     )
 }
 
@@ -21,7 +22,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     onLogout: () => dispatch(logout()),
-    onLogoutTodos: () => dispatch(logoutTodos())
+    onLogoutTodos: () => dispatch(logoutTodos()),
+    onChangeField: (field, state) => dispatch(changeFieldThunk(field, state)),
+    onChangeEmail: (field, email, pass) => dispatch(changeEmailThunk(field, email, pass)),
+    onPasswordEmail: (field, email, pass) => dispatch(changePasswordThunk(field, email, pass))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountContainer)

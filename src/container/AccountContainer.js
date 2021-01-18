@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
     onLogoutTodos: () => dispatch(logoutTodos()),
     onChangeField: (field, state) => dispatch(changeFieldThunk(field, state)),
     onChangeEmail: (field, email, pass) => dispatch(changeEmailThunk(field, email, pass)),
-    onPasswordEmail: (field, email, pass) => dispatch(changePasswordThunk(field, email, pass))
+    onChangePassword: (field, email, pass) => dispatch(changePasswordThunk(field, email, pass))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountContainer)

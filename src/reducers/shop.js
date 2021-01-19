@@ -1,27 +1,28 @@
 import {
-    START_LOADING,
-    END_LOADING
+    GET_CARS,
+    GET_BRANDS
 } from '../constants'
 
 let initialState = {
-    isLoading: false
+    cars: [],
+    brands: []
 }
 
-const loading = (state = initialState, action) => {
+const shop = (state = initialState, action) => {
     switch (action.type) {
-        case START_LOADING: 
+        case GET_CARS:
             return {
                 ...state,
-                isLoading: true
+                cars: action.payload
             }
-        case END_LOADING: 
+        case GET_BRANDS:
             return {
                 ...state,
-                isLoading: false
+                brands: action.payload
             }
         default:
             return state
     }
 }
 
-export default loading
+export default shop

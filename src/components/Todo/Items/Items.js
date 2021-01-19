@@ -12,7 +12,7 @@ const Items = ({todos, isAuth, onDeleteTodo, handleCheckbox}) => {
             {isAuth && todos && todos.map((item) => (
                 <div className={styles.itemsContainer} 
                     key={item.id}>
-                    <input type='checkbox' onChange={(e) => handleCheckbox(e.target.checked, item.id)} checked={item.completed}/>
+                    <input type='checkbox' onChange={(e) => handleCheckbox(e.target.checked, item.id)} checked={item.completed} />
                     <span className={item.completed ? styles.isCompleted : styles.isNotCompleted}>
                         {item.title}
                     </span>

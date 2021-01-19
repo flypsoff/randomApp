@@ -1,14 +1,31 @@
 import React from 'react'
-import ShopSidebar from './ShopSidebar/ShopSidebar'
-import ShopMain from './ShopMain/ShopMain'
+import Filter from './Filter/Filter'
+import Cars from './Cars/Cars'
+
 import styles from './Shop.module.css'
 
-const Shop = (props) => {
+const Shop = ({ isAuth, cars, brands, brandParam }) => {
+
     return (
-        <div className={styles.shopContainer}>  
-            <ShopSidebar brands={props.brands} />
-            <ShopMain cars={props.cars} />
-        </div>
+        <>
+            { isAuth && 
+                <div className={styles.pannel}>
+                    Cart
+                </div>
+            }
+
+
+            <div className={styles.shopContainer}>
+
+
+                <div className={styles.brandsContainer} >
+                    <Filter brands={brands} brandParam={brandParam}/>
+                </div>
+                <div className={styles.carsContainer} >
+                    <Cars cars={cars} />
+                </div>
+            </div>
+        </>
     )
 }
 

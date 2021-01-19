@@ -1,8 +1,8 @@
-.mainCompletedContainer {
+.mainDeletedContainer {
     margin: 5px;
 }
 
-.completedContainer {
+.deletedContainer {
     display: flex;
     align-items: center;
     margin-top: 5px;

@@ -5,7 +5,7 @@ import FullnameField from "./Fields/FullnameField"
 import getDate from '../../../utils/getDate'
 import Fields from "./Fields/Fields"
 
-const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword, user }) => {
+const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword, isLoading, user }) => {
     const [date, setDate] = useState(NaN)
 
     useEffect(() => {
@@ -17,9 +17,7 @@ const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword,
         <div className={styles.mainContainer}>
             <div className={styles.account}>
                 Account
-                <button onClick={handleLogout}>
-                    Logout
-                </button>
+                <button onClick={handleLogout}>Logout</button>
             </div>
 
             <div className={styles.info}>
@@ -28,13 +26,13 @@ const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword,
                         <FullnameField name={user.name} surname={user.surname} date={date} />
                     </div>
                     <div className={styles.item}>
-                        <Fields field='name' name={user.name} onChangeField={onChangeField} />
+                        <Fields field='name' name={user.name} onChangeField={onChangeField} isLoading={isLoading}/>
                     </div>
                     <div className={styles.item}>
-                        <Fields field='surname' name={user.surname} onChangeField={onChangeField} />
+                        <Fields field='surname' name={user.surname} onChangeField={onChangeField} isLoading={isLoading}/>
                     </div>
                     <div className={styles.item}>
-                        <Fields field='country' name={user.country} onChangeField={onChangeField} />
+                        <Fields field='country' name={user.country} onChangeField={onChangeField} isLoading={isLoading}/>
                     </div>
                     <div className={styles.item}>
                         birthday: {user.birthday}
@@ -46,6 +44,7 @@ const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword,
                     onChangeEmailField={onChangeEmail} 
                     onChangePasswordField={onChangePassword} 
                     handleLogout={handleLogout}
+                    isLoading={isLoading}
                     />
 
             </div>

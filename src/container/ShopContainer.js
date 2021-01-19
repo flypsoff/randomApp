@@ -1,44 +1,34 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { withRouter, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-import { getCarsThunk, getBrandsThunk } from '../actions/shops'
+import { getCarsThunk, getBrandsThunk } from '../actions/shop'
 import Shop from '../components/Shop/Shop'
-import Preloader from '../components/commons/Preloader'
 
-const ShopContainer = ({ loading, brands, cars, onGetCars, onGetBrands, ...props }) => {
-    const { brand } = useParams()
+const ShopContainer = ({ onGetCars, onGetBrands, onGetCurrentBrand, ...props }) => {
+    const brandParam = useParams()
+    
     
     useEffect(() => {
-        if (!brands.length) {
-            onGetBrands()
-        }
-
-        if (!brand) {
-            onGetCars()
-        } else {
-            onGetCars(brand)
-        }
-
+        onGetBrands()
+        onGetCars(brandParam.brand)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [brand])
-
+    }, [brandParam.brand])
 
     return (
-        loading ? <Preloader /> : <Shop brands={brands} cars={cars} loading={loading} />
+        <Shop {...props} brandParam={brandParam.brand}/>
     )
 }
 
-
 const mapStateToProps = (state) => ({
-    brands: state.shops.brands,
-    cars: state.shops.cars,
-    loading: state.shops.loading,
+    isAuth: state.user.isAuth,
+    cars: state.shop.cars,
+    brands: state.shop.brands
 })
 
 const mapDispatchToProps = (dispatch) => ({
     onGetCars: (brand) => dispatch(getCarsThunk(brand)),
-    onGetBrands: () => dispatch(getBrandsThunk()),
+    onGetBrands: () => dispatch(getBrandsThunk())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ShopContainer))
+export default connect(mapStateToProps, mapDispatchToProps)(ShopContainer)

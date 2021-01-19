@@ -1,0 +1,14 @@
+.carsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.car {
+    display: flex;
+    flex: 300px;
+    padding: 10px 25px;
+}
+
+.carInfo { 
+    padding: 10px;
+}

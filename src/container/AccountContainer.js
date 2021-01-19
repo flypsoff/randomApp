@@ -17,7 +17,8 @@ const AccountContainer = ({onLogout, onLogoutTodos, ...props}) => {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.user.currentUser
+    user: state.user.currentUser,
+    isLoading: state.loading.isLoading
 })
 
 const mapDispatchToProps = (dispatch) => ({

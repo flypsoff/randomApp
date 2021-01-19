@@ -15,8 +15,6 @@ const Routers = ({ isAuth }) => {
     return (
         <Switch>
             <Route exact path={'/'} render={() => <Home />} />
-            <Route exact path={'/car/:id?'} render={withSuspense(container.CarContainer)} />
-            <Route exact path={'/shop/cart'} render={() => <container.CartContainer />} />
             <Route exact path={'/shop/:brand?'} render={withSuspense(ShopContainer)} />
 
             <Route exact path={'/todos'} render={withSuspense(TodoContainer)} />

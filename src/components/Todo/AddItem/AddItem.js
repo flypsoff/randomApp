@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './AddItem.module.css'
 
-const AddItem = ({ onCurrentTodo, todoValue, onAddTodo }) => {
+const AddItem = ({ todoValue, onCurrentTodo,  onAddTodo }) => {
 
     const handleClick = () => {
         try {

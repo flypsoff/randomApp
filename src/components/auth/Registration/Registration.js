@@ -5,7 +5,7 @@ import { InputRender } from '../../commons/FormsControl/FormsControl';
 import { reduxForm, Field } from 'redux-form'
 import { Link } from "react-router-dom";
 
-const Registration = ({ handleSubmit, errorMessage}) => {
+const Registration = ({ handleSubmit, errorMessage, submitting}) => {
     return (
         <div className={styles.mainConatiner}>
             <div>
@@ -17,7 +17,7 @@ const Registration = ({ handleSubmit, errorMessage}) => {
                     <Field name='surname' component={InputRender} type='text' placeholder='surname' />
                     <Field name='birthday' component={InputRender} type='date' placeholder='birthday' />
                     <Field name='country' component={InputRender} type='text' placeholder='country' />
-                    <button>Registration</button>
+                    <button disabled={submitting}>Registration</button>
                 </form>
                 <ul style={{color: 'darkred'}}>
                     {

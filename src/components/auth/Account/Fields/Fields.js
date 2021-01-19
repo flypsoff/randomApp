@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import AccountChange from '../../../commons/AccountChange/AccountChange'
 import styles from './Def.module.css'
 
-const Fields = ({field, name, onChangeField}) => {
+const Fields = ({field, name, onChangeField, isLoading}) => {
     const [state, setState] = useState('')
-
     const [errorMessage, setErrorMessage] = useState([])
 
     const handleClick = async () => {
@@ -38,7 +37,7 @@ const Fields = ({field, name, onChangeField}) => {
                 <ul style={{color: 'darkred'}}>
                 {errorMessage && errorMessage.map((item, index) => <li key={index}>{item}</li>)}
                 </ul>
-                <button onClick={handleClick}>Submit</button>
+                <button onClick={handleClick} disabled={isLoading}>Submit</button>
 
             </AccountChange>
         </>

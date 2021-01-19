@@ -1,3 +1,25 @@
 .shopContainer {
     display: flex;
 }
+
+.pannel {
+    background-color: rgb(105, 195, 189);
+    margin: 10px;
+    padding: 20px;
+}
+
+.brandsContainer {
+    width: 24%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin-right: 10px;
+    padding-top: 20px;
+}
+
+.carsContainer {
+    width: 74%;
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+}

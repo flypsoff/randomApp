@@ -46,7 +46,7 @@ const Email = (props) => {
                 <ul style={{color: 'darkred'}}>
                 {errorMessage && errorMessage.map((item, index) => <li key={index}>{item}</li>)}
                 </ul>
-                <button onClick={handleClick}>Submit</button>
+                <button onClick={handleClick} disabled={props.isLoading}>Submit</button>
             </AccountChange>
         </>
     )

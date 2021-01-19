@@ -5,7 +5,7 @@ import { InputRender } from '../../commons/FormsControl/FormsControl';
 import { reduxForm, Field } from 'redux-form'
 import { Link } from "react-router-dom";
 
-const Login = ({ handleSubmit, errorMessage}) => {
+const Login = ({ handleSubmit, errorMessage, submitting}) => {
     return (
         <div className={styles.mainContainer}>
             <div>
@@ -13,7 +13,7 @@ const Login = ({ handleSubmit, errorMessage}) => {
                 <form onSubmit={handleSubmit}>
                     <Field name='email' component={InputRender} type='text' placeholder='email' />
                     <Field name='password' component={InputRender} type='password' placeholder='password' />
-                    <button>Login</button>
+                    <button disabled={submitting}>Login</button>
                 </form>
                 <p style={{color: 'darkred'}}>{errorMessage ? errorMessage : ''}</p>
             </div>

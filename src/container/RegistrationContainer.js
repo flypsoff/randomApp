@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { reset } from 'redux-form'
 
-import { registrationAPI } from '../api/api'
+import { registrationAPI } from '../api/authAPI'
 import Registration from '../components/auth/Registration/Registration'
 
 const RegistrationContainer = (props) => {

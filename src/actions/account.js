@@ -8,9 +8,15 @@ import {
     changePasswordAPI
 } from './../api/accountAPI'
 
+import {
+    startLoading,
+    endLoading
+} from './loading'
+
 export const changeField = (payload, field) => ({ type: CNANGE_FIELD, payload, field })
 export const changeFieldThunk = (field, state) => async dispatch => {
     try {
+        dispatch(startLoading())
         const res = await changeAPI(field, state)
         dispatch(changeField(res.data.value, field))
         return { message: 'Updated successfully'}
@@ -19,11 +25,14 @@ export const changeFieldThunk = (field, state) => async dispatch => {
             message: e.response.data.message, 
             errors: e.response.data.error
         }
+    } finally {
+        dispatch(endLoading())
     }
 }
 
 export const changeEmailThunk = (field, email, pass) => async dispatch => {
     try {
+        dispatch(startLoading())
         const res = await changeEmailAPI(email, pass)
         dispatch(changeField(res.data.value, field))
         return { message: 'Updated successfully'}
@@ -32,11 +41,14 @@ export const changeEmailThunk = (field, email, pass) => async dispatch => {
             message: e.response.data.message, 
             errors: e.response.data.error
         }
+    } finally {
+        dispatch(endLoading())
     }
 }
 
 export const changePasswordThunk = (field, newPassword, oldPassword) => async dispatch => {
     try {
+        dispatch(startLoading())
         const res = await changePasswordAPI(newPassword, oldPassword)
         dispatch(changeField(res.data.value, field))
         return { message: 'Updated successfully'}
@@ -45,5 +57,7 @@ export const changePasswordThunk = (field, newPassword, oldPassword) => async di
             message: e.response.data.message, 
             errors: e.response.data.error
         }
+    } finally {
+        dispatch(endLoading())
     }
 }

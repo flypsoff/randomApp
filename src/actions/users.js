@@ -6,7 +6,7 @@ import {
 import {
     authorizationAPI,
     loginAPI
-} from './../api/api'
+} from '../api/authAPI'
 
 export const setUser = (user) => ({ type: SET_USER, payload: user })
 export const setUserThunk = (user) => async dispatch => {

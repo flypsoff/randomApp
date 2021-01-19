@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { setDeletedTodosThunk, deleteDeletedTodosThunk } from '../actions/todos'
 import LogginWarn from '../components/commons/LoginWarn/LoginWarn'
-import Completed from '../components/Todo/Deleted/Deleted'
+import Deleted from '../components/Todo/Deleted/Deleted'
 
 const CompletedContainer = (props) => {
 
@@ -24,7 +24,7 @@ const CompletedContainer = (props) => {
     }
 
     return (
-        <Completed {...props} />
+        <Deleted {...props} />
     )
 }
 

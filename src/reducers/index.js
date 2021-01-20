@@ -2,13 +2,13 @@ import { combineReducers  } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
 import todos from './todos'
-import shop from './shop'
 import user from './user'
 import loading from './loading'
+import cars from './cars'
 
 const reducers = combineReducers({
     todos,
-    shop,
+    cars,
     user,
     loading,
     form: formReducer

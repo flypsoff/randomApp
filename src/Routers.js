@@ -7,7 +7,6 @@ import Home from './components/Home/Home'
 
 import * as container from './container'
 
-const ShopContainer = React.lazy(() => import('./container/ShopContainer'))
 const TodoContainer = React.lazy(() => import('./container/TodoContainer'))
 const DeletedContainer = React.lazy(() => import('./container/DeletedContainer'))
 
@@ -15,8 +14,8 @@ const Routers = ({ isAuth }) => {
     return (
         <Switch>
             <Route exact path={'/'} render={() => <Home />} />
-            <Route exact path={'/shop/:brand?'} render={withSuspense(ShopContainer)} />
-
+            <Route exact path={'/cars'} render={() => <container.CarsContainer />} />
+            
             <Route exact path={'/todos'} render={withSuspense(TodoContainer)} />
             <Route exact path={'/todos/deleted'} render={withSuspense(DeletedContainer)} />
 

@@ -1,0 +1,17 @@
+.carsContainer {
+    display: flex;
+    padding: 10px 0;
+}
+
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    flex: 25%;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.carsCollectionContainer {
+    flex: 75%;
+    background-color: white;
+}

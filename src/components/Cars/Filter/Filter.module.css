@@ -1,0 +1,29 @@
+.filterContainer {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filterContainer div {
+    padding: 5px 0;
+}
+
+.filterContainer select {
+    width: 200px;
+}
+
+.inputs{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputs input{
+    width: 85px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none
+}
+
+

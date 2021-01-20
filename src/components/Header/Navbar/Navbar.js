@@ -9,8 +9,8 @@ const Navbar = ({ isAuth }) => {
             <NavLink to='/'>
                 <li>Home</li>
             </NavLink>
-            <NavLink to='/shop'>
-                <li>Shop</li>
+            <NavLink to='/cars'>
+                <li>Cars</li>
             </NavLink>
             <NavLink to='/todos'>
                 <li>Todo</li>

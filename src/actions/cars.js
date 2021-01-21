@@ -1,7 +1,8 @@
 import {
     GET_CARS,
     GET_BRANDS,
-    SET_FILTER
+    SET_FILTER,
+    RESET_FILTER
 } from './../constants'
 
 import {
@@ -33,3 +34,5 @@ export const getBrandsThunk = () => async (dispatch) => {
     }
 
 }
+
+export const resetFilter = (payload) => ({ type: RESET_FILTER, payload})

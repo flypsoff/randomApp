@@ -1,7 +1,8 @@
 import {
     GET_CARS,
     GET_BRANDS,
-    SET_FILTER
+    SET_FILTER,
+    RESET_FILTER
 } from '../constants'
 
 let initialState = {
@@ -30,6 +31,7 @@ const cars = (state = initialState, action) => {
                 ...state,
                 brands: action.payload
             }
+        case RESET_FILTER:
         case SET_FILTER:
             return {
                 ...state,

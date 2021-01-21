@@ -7,7 +7,7 @@ const Cars = (props) => {
     return (
         <div className={styles.carsContainer}>
             <div className={styles.filterContainer}>
-                <Filter onFilterChanged={props.onFilterChanged}/>
+                <Filter onFilterChanged={props.onFilterChanged} handleReset={props.handleReset}/>
             </div>
             <div className={styles.carsCollectionContainer}>
                 <CarsCollection />

@@ -7,22 +7,17 @@ import styles from './Filter.module.css'
 const Filter = (props) => {
     const dispatch = useDispatch()
     const brands = useSelector(state => state.cars.brands)
-
+    const filter = useSelector(state => state.cars.filter)
+    
     useEffect(() => {
         dispatch(getBrandsThunk())
-    }, [dispatch])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <div >
             <Formik
-                initialValues={{
-                    brand: '',
-                    bodyType: '',
-                    carClass: '',
-                    fromYear: '',
-                    toYear: '',
-                    fromPrice: '',
-                    toPrice: ''
-                }}
+                enableReinitialize
+                initialValues={filter}
                 onSubmit={(value, { setSubmitting }) => {
                     props.onFilterChanged(value)
                     setSubmitting(false)
@@ -65,8 +60,8 @@ const Filter = (props) => {
                         </div>
                         <div >
                             <label><b>Year</b></label><br />
-                            <div className={styles.inputs}>
-                                <Field type='number' name='fromYear' placeholder='from' className={styles.firstInput} min='1' />
+                            <div className={styles.inputs} >
+                                <Field type='number' name='fromYear' placeholder='from' className={styles.firstInput} min='1'/>
                                 <Field type='number' name='toYear' placeholder='to' min='1' />
                             </div>
                         </div>
@@ -77,8 +72,9 @@ const Filter = (props) => {
                                 <Field type='number' name='toPrice' placeholder='to' min='1' />
                             </div>
                         </div>
-                        <div>
+                        <div className={styles.buttons}>
                             <button type="submit" disabled={isSubmitting}>Submit</button>
+                            <button type="reset" onClick={() => props.handleReset()}>Reset</button>
                         </div>
                     </Form>
                     }

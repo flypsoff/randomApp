@@ -1,7 +1,7 @@
 .filterContainer {
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
+    padding: 20px 0;
 }
 
 .filterContainer div {
@@ -26,4 +26,7 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none
 }
 
-
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}

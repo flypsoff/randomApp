@@ -4,7 +4,7 @@ import Cases from './Cases/Cases'
 import Items from './Items/Items'
 import styles from './Todo.module.css'
 
-const Todo = ({ todos,  todoValue, isAuth, onCurrentTodo, onAddTodo, onDeleteTodo, handleCheckbox }) => {
+const Todo = ({ todos, todoValue, isAuth, onCurrentTodo, onAddTodo, onDeleteTodo, handleCheckbox }) => {
     return (
         <div>
             <div className={styles.todoContainer}>
@@ -15,10 +15,10 @@ const Todo = ({ todos,  todoValue, isAuth, onCurrentTodo, onAddTodo, onDeleteTod
                     isAuth={isAuth}
                     onAddTodo={onAddTodo}
                 />
-                <Items 
-                    todos={todos} 
-                    isAuth={isAuth} 
-                    onDeleteTodo={onDeleteTodo} 
+                   <Items
+                    todos={todos}
+                    isAuth={isAuth}
+                    onDeleteTodo={onDeleteTodo}
                     handleCheckbox={handleCheckbox}
                 />
             </div>

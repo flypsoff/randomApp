@@ -14,7 +14,7 @@ const Filter = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
-        <div >
+        <div className={styles.fixed}>
             <Formik
                 enableReinitialize
                 initialValues={filter}
@@ -55,6 +55,16 @@ const Filter = (props) => {
                                     <option value='coupe' label='coupe'></option>
                                     <option value='wagon' label='wagon'></option>
                                     <option value='crossover' label='crossover'></option>
+                                </Field>
+                            </div>
+                        </div>
+                        <div>
+                            <label><b>Car state</b></label><br />
+                            <div>
+                                <Field name='carState' as='select' placeholder='state'>
+                                    <option value='' label='all states'></option>
+                                    <option value='new' label='new'></option>
+                                    <option value='used' label='used'></option>
                                 </Field>
                             </div>
                         </div>

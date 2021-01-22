@@ -1,6 +1,9 @@
 .headerContainer {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     padding: 5px 30px;
-    background-color: rgb(73, 161, 155);
+    border: 1px solid #A9A9A9;
+    background-color: #F5F5F5;
+    margin-bottom: 10px;
 }

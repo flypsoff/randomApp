@@ -1,11 +1,13 @@
 .mainConatiner {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 100%;
     padding: 10px; 
+    background-color: #F5F5F5;
 }
 
 .mainConatiner input {
+    display: flex;
     padding: 5px;
     width: 285px;
     margin: 3px 0;

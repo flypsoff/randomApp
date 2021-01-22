@@ -1,12 +1,12 @@
-.logo {
-    font-size: 1.7em;
-}
-
 .logoContainer {
     padding-left: 3%;
     line-height: 90%;
 }
 
+.logo {
+    font-size: 1.7em;
+}
+
 .logedIn {
-    color: #f5f6f6;
+    color: #A9A9A9;
 }

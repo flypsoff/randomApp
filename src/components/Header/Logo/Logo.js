@@ -6,7 +6,7 @@ const Logo = (props) => {
     const name = useSelector(state => state.user.currentUser.name) 
     
     return (
-        <p className={styles.logoContainer}> 
+        <div className={styles.logoContainer}> 
             <span className={styles.logo}><b>Logo</b></span>
             <br />
             {
@@ -14,7 +14,7 @@ const Logo = (props) => {
                 : <small>Welcome Guest</small>
             }
             
-        </p>
+        </div>
     )
 }
 

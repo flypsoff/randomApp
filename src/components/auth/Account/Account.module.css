@@ -9,11 +9,11 @@
 
 .info>div, .userSecutiry>div, .account{
     padding: 10px 20px;
-    background-color: white;
+    background-color: #F5F5F5;
 }
 
 .userData>div:not(:first-child), .userSecutiry>div:not(:first-child) {
-    border-top: 1px solid silver;
+    border-top: 1px solid #A9A9A9;
 }
 
 .item {
@@ -22,7 +22,7 @@
 }
 
 .item:not(:first-child) {
-    border-top: 1px solid silver;
+    border-top: 1px solid #A9A9A9;
 
 }
 

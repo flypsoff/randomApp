@@ -6,7 +6,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f6f6;
+  /* background-color: #f5f6f6; */
+  /* background-color: #D3D3D3	; */
+  background: url('./assets/img/maybah.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center -400px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 code {
@@ -14,16 +23,17 @@ code {
     monospace;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
+
 
 button {
   border-radius: 0;
   padding: 4px;
   margin: 2px 0;  
-  border: 1px solid silver;
-  background-color: #f5f6f6;
+  border: 1px solid #A9A9A9;
+  background-color: white;
   font-size: 0.9rem;
   cursor: pointer;
   text-align: center;

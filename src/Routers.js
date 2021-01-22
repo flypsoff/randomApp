@@ -9,12 +9,15 @@ import * as container from './container'
 
 const TodoContainer = React.lazy(() => import('./container/TodoContainer'))
 const DeletedContainer = React.lazy(() => import('./container/DeletedContainer'))
+const OneCarContainer = React.lazy(() => import('./container/OneCarContainer'))
+const CarsContainer = React.lazy(() => import('./container/CarsContainer'))
 
 const Routers = ({ isAuth }) => {
     return (
         <Switch>
             <Route exact path={'/'} render={() => <Home />} />
-            <Route exact path={'/cars'} render={() => <container.CarsContainer />} />
+            <Route exact path={'/cars'} render={withSuspense(CarsContainer)} />
+            <Route exact path={'/car/:id'} render={withSuspense(OneCarContainer)} />
             
             <Route exact path={'/todos'} render={withSuspense(TodoContainer)} />
             <Route exact path={'/todos/deleted'} render={withSuspense(DeletedContainer)} />

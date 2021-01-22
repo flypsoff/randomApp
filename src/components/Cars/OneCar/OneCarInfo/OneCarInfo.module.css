@@ -1,0 +1,27 @@
+.mainInfo {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #F5F5F5;
+    border: 1px solid #A9A9A9;
+}
+
+.mainInfo>span {
+    text-align: right;
+    color: #898989;
+}
+
+.infoTitle {
+    display: flex;
+    margin: 10px 0;
+}
+
+.info {
+    text-align: center;
+    width: 30%;
+    padding-left: 10px;
+    color: #898989;
+}
+
+.point {
+    color: #898989;
+}

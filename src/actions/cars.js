@@ -2,12 +2,14 @@ import {
     GET_CARS,
     GET_BRANDS,
     SET_FILTER,
-    RESET_FILTER
+    RESET_FILTER,
+    GET_CAR_BY_ID
 } from './../constants'
 
 import {
     getCarsAPI,
-    getBrandsAPI
+    getBrandsAPI,
+    getOneCarAPI
 } from './../api/carsAPI'
 
 export const setFilter = (payload) => ({ type: SET_FILTER, payload})
@@ -36,3 +38,14 @@ export const getBrandsThunk = () => async (dispatch) => {
 }
 
 export const resetFilter = (payload) => ({ type: RESET_FILTER, payload})
+
+
+export const getCarById = (payload) => ({ type: GET_CAR_BY_ID, payload })
+export const getCarByIdThunk = (carID) => async (dispatch) => {
+    try {
+        const res = await getOneCarAPI(carID)
+        dispatch(getCarById(res.data.car))
+    } catch (e) {
+        console.log(e.response.data.message)
+    }
+}

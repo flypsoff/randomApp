@@ -16,6 +16,8 @@ export const GET_CARS = 'GET_CARS'
 export const GET_BRANDS = 'GET_BRANDS'
 export const SET_FILTER = 'SET_FILTER' 
 export const RESET_FILTER = 'RESET_FILTER'
+export const GET_CAR_BY_ID = 'GET_CAR_BY_ID'
+
 
 export const SET_USER = 'SET_USER'
 export const LOGOUT = 'LOGOUT'

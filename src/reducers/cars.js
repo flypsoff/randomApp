@@ -2,7 +2,8 @@ import {
     GET_CARS,
     GET_BRANDS,
     SET_FILTER,
-    RESET_FILTER
+    RESET_FILTER,
+    GET_CAR_BY_ID
 } from '../constants'
 
 let initialState = {
@@ -15,8 +16,10 @@ let initialState = {
         fromYear: '',
         toYear: '',
         fromPrice: '',
-        toPrice: ''
-    }
+        toPrice: '',
+        carState: ''
+    },
+    currentCar: null
 }
 
 const cars = (state = initialState, action) => {
@@ -36,6 +39,11 @@ const cars = (state = initialState, action) => {
             return {
                 ...state,
                 filter: action.payload
+            }
+        case GET_CAR_BY_ID:
+            return {
+                ...state,
+                currentCar: action.payload
             }
         default:
             return state

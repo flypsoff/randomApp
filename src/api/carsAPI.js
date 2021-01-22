@@ -12,3 +12,7 @@ export const getCarsAPI = (filter) => {
 export const getBrandsAPI = () => {
     return carsAPI.get('/brands')
 }
+
+export const getOneCarAPI = (carID) => {
+    return carsAPI.get(carID)
+}

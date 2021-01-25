@@ -4,7 +4,7 @@ import Modal from 'react-modal'
 
 Modal.setAppElement('#root')
 
-const AccountChange = ({ children, change, clearState }) => {
+const AccountChange = ({ children, act, clearState, buttonName }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const handleClickOpen = () => {
@@ -17,15 +17,15 @@ const AccountChange = ({ children, change, clearState }) => {
     }
 
     return (
-        <div className={styles.change}>
-            <button onClick={handleClickOpen}>Change</button>
+        <div className={buttonName === 'Delete' ? '' : styles.change}>
+            <button onClick={handleClickOpen}>{buttonName}</button>
 
             <Modal isOpen={isOpen} className={styles.changeModal} overlayClassName={styles.overlay}
                 onRequestClose={handleClickClose} contentLabel="Example Modal">
 
                 <div className={styles.mainContainer}>
                     <div className={styles.changeHeader}>
-                        <h3>Change {change}</h3>
+                        <h3>{act}</h3>
                         <button onClick={handleClickClose}>close</button>
                     </div>
                     <div>

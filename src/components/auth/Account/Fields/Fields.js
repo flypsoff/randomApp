@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AccountChange from '../../../commons/AccountChange/AccountChange'
 import styles from './Def.module.css'
 
-const Fields = ({field, name, onChangeField, isLoading}) => {
+const Fields = ({field, name, act, onChangeField, isLoading, buttonName}) => {
     const [state, setState] = useState('')
     const [errorMessage, setErrorMessage] = useState([])
 
@@ -26,7 +26,7 @@ const Fields = ({field, name, onChangeField, isLoading}) => {
             <div>
                 {field}: {name}
             </div>
-            <AccountChange change='field' clearState={clearState}>
+            <AccountChange act={act} clearState={clearState} buttonName={buttonName}>
                 <label>Enter new {field}:</label>
                 <div className={styles.form}>
                     <input type='text' placeholder={field}

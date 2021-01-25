@@ -31,7 +31,7 @@ const Password = (props) => {
             <div>
                 password
             </div>
-            <AccountChange change='field' clearState={clearState}>
+            <AccountChange act='Change password' clearState={clearState} buttonName='Change'>
                 <label>Enter new password</label>
                 <div className={styles.form}>
                     <input type='password' placeholder='new password' ref={newPassword} />

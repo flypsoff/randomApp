@@ -31,7 +31,7 @@ const Email = (props) => {
             <div>
             email: {props.email}
             </div>
-            <AccountChange change='field' clearState={clearState}>
+            <AccountChange act='Change email' clearState={clearState} buttonName='Change'>
                 <label>Enter new email:</label>
                 <div className={styles.form}>
                     <input type='text' placeholder='email'

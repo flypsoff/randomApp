@@ -4,6 +4,7 @@ import Security from "./Security/Security"
 import FullnameField from "./Fields/FullnameField"
 import getDate from '../../../utils/getDate'
 import Fields from "./Fields/Fields"
+import DeleteAccount from "./Fields/DeleteAccount"
 
 const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword, isLoading, user }) => {
     const [date, setDate] = useState(NaN)
@@ -18,6 +19,10 @@ const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword,
             <div className={styles.account}>
                 Account
                 <button onClick={handleLogout}>Logout</button>
+                <div>
+                    Delete account:
+                <DeleteAccount/>
+                </div>
             </div>
 
             <div className={styles.info}>
@@ -26,13 +31,31 @@ const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword,
                         <FullnameField name={user.name} surname={user.surname} date={date} />
                     </div>
                     <div className={styles.item}>
-                        <Fields field='name' name={user.name} onChangeField={onChangeField} isLoading={isLoading}/>
+                        <Fields 
+                            buttonName='Change'
+                            field='name' 
+                            act='Change name'
+                            name={user.name} 
+                            onChangeField={onChangeField} 
+                            isLoading={isLoading}/>
                     </div>
                     <div className={styles.item}>
-                        <Fields field='surname' name={user.surname} onChangeField={onChangeField} isLoading={isLoading}/>
+                        <Fields 
+                            buttonName='Change'
+                            field='surname' 
+                            act='Change surname'
+                            name={user.surname} 
+                            onChangeField={onChangeField} 
+                            isLoading={isLoading}/>
                     </div>
                     <div className={styles.item}>
-                        <Fields field='country' name={user.country} onChangeField={onChangeField} isLoading={isLoading}/>
+                        <Fields 
+                            buttonName='Change'
+                            field='country' 
+                            act='Change country'
+                            name={user.country} 
+                            onChangeField={onChangeField} 
+                            isLoading={isLoading}/>
                     </div>
                     <div className={styles.item}>
                         birthday: {user.birthday}

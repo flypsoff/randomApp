@@ -9,7 +9,7 @@ import {
 } from '../api/authAPI'
 
 export const setUser = (user) => ({ type: SET_USER, payload: user })
-export const setUserThunk = (user) => async dispatch => {
+export const setUserThunk = (user) => async (dispatch) => {
     try {
         const result = await loginAPI(user)
         dispatch(setUser(result.data.user))
@@ -21,7 +21,7 @@ export const setUserThunk = (user) => async dispatch => {
 
 export const logout = () => ({ type: LOGOUT })
 
-export const authorization = () => async dispatch => {
+export const authorization = () => async (dispatch) => {
     try {
         const response = await authorizationAPI()
         dispatch(setUser(response.data.user))

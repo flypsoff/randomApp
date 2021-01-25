@@ -24,3 +24,10 @@ export const changePasswordAPI = (newPassword, oldPassword) => {
             Authorization: `Bearer ${localStorage.getItem('token')}`
     }})
 }
+
+export const deleteAccountAPI = () => {
+    return api.delete('/delete', {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+    }})
+}

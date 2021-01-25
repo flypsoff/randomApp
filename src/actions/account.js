@@ -5,13 +5,15 @@ import {
 import {
     changeAPI,
     changeEmailAPI,
-    changePasswordAPI
+    changePasswordAPI,
+    deleteAccountAPI
 } from './../api/accountAPI'
 
 import {
     startLoading,
     endLoading
 } from './loading'
+import { logout } from './users'
 
 export const changeField = (payload, field) => ({ type: CNANGE_FIELD, payload, field })
 export const changeFieldThunk = (field, state) => async dispatch => {
@@ -60,4 +62,15 @@ export const changePasswordThunk = (field, newPassword, oldPassword) => async di
     } finally {
         dispatch(endLoading())
     }
+}
+
+export const deleteAccountThunk = () => async (dispatch) => {
+    try {
+        const res = await deleteAccountAPI()
+        dispatch(logout())
+        return { message: res.data.message }
+    } catch (e) {
+        console.log(e.response.data.message)
+    }
+
 }

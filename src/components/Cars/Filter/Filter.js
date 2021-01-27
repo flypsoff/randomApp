@@ -17,7 +17,10 @@ const Filter = (props) => {
         <div className={styles.fixed}>
             <Formik
                 enableReinitialize
-                initialValues={filter}
+                initialValues={{
+                    ...filter,
+                    brand: filter.brand.toLowerCase()
+                }}
                 onSubmit={(value, { setSubmitting }) => {
                     props.onFilterChanged(value)
                     setSubmitting(false)

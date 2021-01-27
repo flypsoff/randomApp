@@ -18,3 +18,19 @@
     flex: 75%;
     background-color: #F5F5F5;
 }
+
+.addCarContainer {
+    text-align: center;
+    padding: 10px;
+    background-color: lightgreen;
+    border-radius: 5px;
+}
+
+.addCarContainer span {
+    color: rgb(104, 38, 38);
+}
+
+.addCarContainer a {
+    color: black;
+    text-decoration: none;
+}

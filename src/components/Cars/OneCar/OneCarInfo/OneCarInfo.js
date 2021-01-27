@@ -14,7 +14,7 @@ const OneCarInfo = ({ car }) => {
             </div>
             <div className={styles.infoTitle}>
                 <div className={styles.info}>Engine</div>
-                <i><b>{car.info.engineCapacity} ({car.info.hp} hp) <span className={styles.point}>•</span> {car.info.fuelType}</b></i>
+                <i><b>{car.info.engineCapacity}L ({car.info.hp} hp) <span className={styles.point}>•</span> {car.info.fuelType}</b></i>
             </div>
             <div className={styles.infoTitle}>
                 <div className={styles.info}>Transmission</div><i><b>{car.info.transmission}</b></i>

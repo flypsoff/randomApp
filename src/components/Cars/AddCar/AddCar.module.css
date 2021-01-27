@@ -1,0 +1,25 @@
+.addCartContainer {
+    background-color: #F5F5F5;
+    padding: 10px 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.mainAddCar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.oneInfo, .secondInfo {
+    width: 40%;
+} 
+
+.item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.item label {
+    padding-right: 5px;
+}

@@ -17,18 +17,21 @@ const Routers = ({ isAuth }) => {
         <Switch>
             <Route exact path={'/'} render={() => <Home />} />
             <Route exact path={'/cars'} render={withSuspense(CarsContainer)} />
+            <Route exact path={'/car/addcar'} render={() => <container.AddCarContainer />} />
+
             <Route exact path={'/car/:id'} render={withSuspense(OneCarContainer)} />
             
             <Route exact path={'/todos'} render={withSuspense(TodoContainer)} />
             <Route exact path={'/todos/deleted'} render={withSuspense(DeletedContainer)} />
 
             <Route exact path='/account'>
-                {!isAuth ? <Redirect to='login'/> :<container.AccountContainer />}
+                {!isAuth ? <Redirect to='/login'/> :<container.AccountContainer />}
             </Route>
 
             <Route exact path='/login'>
                 {isAuth ? <Redirect to='/account'/> : <container.LoginContainer />}
             </Route>
+            
             <Route exact path='/registration'>
                 {isAuth ? <Redirect to='/account' /> : <container.RegistrationContainer />}
             </Route>

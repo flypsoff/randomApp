@@ -19,7 +19,7 @@ export const getCarsThunk = (filter) => async (dispatch) => {
     try {
         dispatch(setFilter(filter))
         const res = await getCarsAPI(filter)
-        dispatch(getCars(res.data.cars))
+        dispatch(getCars(res.data.cars.reverse()))
     } catch (e) {
         console.log(e.response.data.message)
     }

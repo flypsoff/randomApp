@@ -25,7 +25,7 @@ const OneCar = ({ car }) => {
                             </div>
                             <div>
                                 <h3>Price:</h3>
-                                {car.price} <b>$</b> ({car.price * 0.82} <b>{'\u20AC'}</b>)
+                                {car.price} <b>$</b> ({Math.round(car.price * 0.82)} <b>{'\u20AC'}</b>)
                             </div>
                         </div>
                     </div>

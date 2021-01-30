@@ -8,7 +8,6 @@ const OneCarContainer = (props) => {
     const {pathname} = useLocation()
     const dispatch = useDispatch()
     const car = useSelector(state => state.cars.currentCar)
-
     useEffect(() => {
         dispatch(getCarByIdThunk(pathname))
         // eslint-disable-next-line react-hooks/exhaustive-deps

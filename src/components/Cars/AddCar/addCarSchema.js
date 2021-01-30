@@ -12,6 +12,11 @@ const addCarSchema = Yup.object().shape({
     hp: Yup.number().required('Required field'),
     color: Yup.string('Value must be a string').trim().required('Required field'),
     phoneNumber: Yup.number().test(9, 'Must be exactly 9 characters', val => val ? val.toString().length === 9 : null).positive('Value must be positive').integer('Value must be integer').required('Required field'),
+    carClass: Yup.string().test(null, 'Need select', val => Boolean(val)),
+    bodyType: Yup.string().test(null, 'Need select', val => Boolean(val)),
+    carState: Yup.string().test(null, 'Need select', val => Boolean(val)),
+    transmission: Yup.string().test(null, 'Need select', val => Boolean(val)),
+    fuelType: Yup.string().test(null, 'Need select', val => Boolean(val)),
+    driveTrain: Yup.string().test(null, 'Need select', val => Boolean(val))
 })
-
 export default addCarSchema

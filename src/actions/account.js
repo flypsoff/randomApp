@@ -1,5 +1,6 @@
 import {
-    CNANGE_FIELD
+    CNANGE_FIELD,
+    ADD_POST
 } from './../constants'
 
 import {
@@ -74,3 +75,5 @@ export const deleteAccountThunk = () => async (dispatch) => {
     }
 
 }
+
+export const addPost = (payload) => ({ type: ADD_POST, payload})

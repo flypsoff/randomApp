@@ -1,7 +1,8 @@
 import {
     SET_USER,
     LOGOUT,
-    CNANGE_FIELD
+    CNANGE_FIELD,
+    ADD_POST
 } from '../constants'
 
 let initialState = {
@@ -30,6 +31,17 @@ const user = (state = initialState, action) => {
                 currentUser: {
                     ...state.currentUser,
                     [action.field]: action.payload
+                }
+            }
+        case ADD_POST:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    posts: [
+                        action.payload,
+                        ...state.currentUser.posts
+                    ]
                 }
             }
         default:

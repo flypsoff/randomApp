@@ -7,7 +7,6 @@ export const DELETE_DELETED_TODO = 'DELETE_DELETED_TODO'
 export const SET_DELETED_TODOS = 'SET_DELETED_TODOS'
 export const CHANGE_COMPLETE = 'CHANGE_COMPLETE'
 
-
 export const START_LOADING = 'START_LOADING'
 export const END_LOADING = 'END_LOADING'
 
@@ -24,3 +23,4 @@ export const LOGOUT = 'LOGOUT'
 
 
 export const CNANGE_FIELD = 'CNANGE_FIELD'
+export const ADD_POST = 'ADD_POST'

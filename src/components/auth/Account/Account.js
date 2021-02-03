@@ -5,6 +5,7 @@ import FullnameField from "./Fields/FullnameField"
 import getDate from '../../../utils/getDate'
 import Fields from "./Fields/Fields"
 import DeleteAccount from "./Fields/DeleteAccount"
+import { Link } from "react-router-dom"
 
 const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword, isLoading, user }) => {
     const [date, setDate] = useState(NaN)
@@ -21,7 +22,20 @@ const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword,
                 <button onClick={handleLogout}>Logout</button>
                 <div>
                     Delete account:
-                <DeleteAccount/>
+                <DeleteAccount />
+                </div>
+            </div>
+
+            <div className={styles.info}>
+                <div>
+                    {user.posts && user.posts.map(item => (
+                        <div key={item.carID} className={styles.post}>
+                            <div><h4>{item.brand}</h4></div>
+                            <div><h4>{item.model}</h4></div>
+                            <div><h4>{item.price}$</h4></div>
+                            <div><Link to={`/car/${item.carID}`}>see car</Link></div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
@@ -31,44 +45,44 @@ const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword,
                         <FullnameField name={user.name} surname={user.surname} date={date} />
                     </div>
                     <div className={styles.item}>
-                        <Fields 
+                        <Fields
                             buttonName='Change'
-                            field='name' 
+                            field='name'
                             act='Change name'
-                            name={user.name} 
-                            onChangeField={onChangeField} 
-                            isLoading={isLoading}/>
+                            name={user.name}
+                            onChangeField={onChangeField}
+                            isLoading={isLoading} />
                     </div>
                     <div className={styles.item}>
-                        <Fields 
+                        <Fields
                             buttonName='Change'
-                            field='surname' 
+                            field='surname'
                             act='Change surname'
-                            name={user.surname} 
-                            onChangeField={onChangeField} 
-                            isLoading={isLoading}/>
+                            name={user.surname}
+                            onChangeField={onChangeField}
+                            isLoading={isLoading} />
                     </div>
                     <div className={styles.item}>
-                        <Fields 
+                        <Fields
                             buttonName='Change'
-                            field='country' 
+                            field='country'
                             act='Change country'
-                            name={user.country} 
-                            onChangeField={onChangeField} 
-                            isLoading={isLoading}/>
+                            name={user.country}
+                            onChangeField={onChangeField}
+                            isLoading={isLoading} />
                     </div>
                     <div className={styles.item}>
                         birthday: {user.birthday}
                     </div>
                 </div>
 
-                <Security 
-                    email={user.email} 
-                    onChangeEmailField={onChangeEmail} 
-                    onChangePasswordField={onChangePassword} 
+                <Security
+                    email={user.email}
+                    onChangeEmailField={onChangeEmail}
+                    onChangePasswordField={onChangePassword}
                     handleLogout={handleLogout}
                     isLoading={isLoading}
-                    />
+                />
 
             </div>
         </div>

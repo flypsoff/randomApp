@@ -29,3 +29,10 @@
 .item {
     padding: 10px 20px;
 }
+
+.post {
+    display: inline-block;
+    padding: 5px;
+    margin: 0 5px;
+    border: 1px solid #A9A9A9;
+}

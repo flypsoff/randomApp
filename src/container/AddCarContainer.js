@@ -15,7 +15,11 @@ const AddCarContainer = (props) => {
             dispatch(addPost(res.data.post))
             alert(res.data.message)
         } catch (e) {
-            console.log(e.response.data.message)
+            if(e.response.status === 403) {
+                alert(e.response.data.message)
+            } else {
+                console.log(e.response.data.message)
+            }
         }  
     }
 

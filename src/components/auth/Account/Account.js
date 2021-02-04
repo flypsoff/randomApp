@@ -7,7 +7,7 @@ import Fields from "./Fields/Fields"
 import DeleteAccount from "./Fields/DeleteAccount"
 import { Link } from "react-router-dom"
 
-const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword, isLoading, user }) => {
+const Account = ({ handleDelete, handleLogout, onChangeField, onChangeEmail, onChangePassword, isLoading, user }) => {
     const [date, setDate] = useState(NaN)
 
     useEffect(() => {
@@ -27,15 +27,22 @@ const Account = ({ handleLogout, onChangeField, onChangeEmail, onChangePassword,
             </div>
 
             <div className={styles.info}>
-                <div>
-                    {user.posts && user.posts.map(item => (
-                        <div key={item.carID} className={styles.post}>
-                            <div><h4>{item.brand}</h4></div>
-                            <div><h4>{item.model}</h4></div>
-                            <div><h4>{item.price}$</h4></div>
-                            <div><Link to={`/car/${item.carID}`}>see car</Link></div>
+                <div className={styles.mainPosts}>
+                    {user.posts.length > 0 ? user.posts.map(item => (
+                        <div key={item.carID} className={styles.postContainer}>
+                            <div className={styles.post}>
+                                <div><h4>{item.brand}</h4></div>
+                                <div><h4>{item.model}</h4></div>
+                                <div><h4>{item.price}$</h4></div>
+                                <div><Link to={`/car/${item.carID}`}>see car</Link></div>
+                            </div>
+                            <div>
+                                <button onClick={() => handleDelete(item.carID)}>Delete</button>
+                            </div>
                         </div>
-                    ))}
+                        
+                    ))
+                    : <div><b>You don't have posts</b></div>}
                 </div>
             </div>
 

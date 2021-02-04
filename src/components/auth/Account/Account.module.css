@@ -30,9 +30,18 @@
     padding: 10px 20px;
 }
 
-.post {
-    display: inline-block;
+.mainPosts {
+    display: flex;
+}
+
+.postContainer {
+    display: flex;
+    border: 1px solid #A9A9A9;
     padding: 5px;
     margin: 0 5px;
-    border: 1px solid #A9A9A9;
+    width: 33%; 
+}
+
+.post {
+    width: 90%;
 }

@@ -17,6 +17,7 @@ const addCarSchema = Yup.object().shape({
     carState: Yup.string().test(null, 'Need select', val => Boolean(val)),
     transmission: Yup.string().test(null, 'Need select', val => Boolean(val)),
     fuelType: Yup.string().test(null, 'Need select', val => Boolean(val)),
-    driveTrain: Yup.string().test(null, 'Need select', val => Boolean(val))
+    driveTrain: Yup.string().test(null, 'Need select', val => Boolean(val)),
+    img: Yup.string().url('Mast be URL')
 })
 export default addCarSchema

@@ -5,6 +5,7 @@ import addCarSchema from './addCarSchema'
 import InputAddCarItem from './AddCarItem/InputAddCarItem'
 
 const AddCar = (props) => {
+
     return (
         <div className={styles.addCartContainer}>
 
@@ -27,6 +28,7 @@ const AddCar = (props) => {
                     driveTrain: '',
                     description: '',
                     phoneNumber: '',
+                    img: ''
                 }}
                 onSubmit={(values) => {
                     props.handleSubmit(values)
@@ -60,7 +62,7 @@ const AddCar = (props) => {
                                         <option value='F'>F</option>
                                         <option value='S'>S</option>
                                     </Field>
-                                {errors.carClass && touched.carClass ? <div style={{color: 'darkred'}}>{errors.carClass}</div> : null}
+                                    {errors.carClass && touched.carClass ? <div style={{ color: 'darkred' }}>{errors.carClass}</div> : null}
                                 </div>
                                 <InputAddCarItem
                                     name='year'
@@ -97,6 +99,11 @@ const AddCar = (props) => {
                                     {errors.carState && touched.carState ? <div style={{color: 'darkred'}}>{errors.carState}</div> : null}
                                 </div>
                                 <InputAddCarItem
+                                    name='mileage'
+                                    label='Mileage'
+                                    errors={errors}
+                                    touched={touched} />
+                                <InputAddCarItem
                                     name='description'
                                     label='Description'
                                     as='textarea' rows='5'
@@ -112,11 +119,6 @@ const AddCar = (props) => {
                                 <InputAddCarItem
                                     name='location'
                                     label='Car location'
-                                    errors={errors}
-                                    touched={touched} />
-                                <InputAddCarItem
-                                    name='mileage'
-                                    label='Mileage'
                                     errors={errors}
                                     touched={touched} />
                                 <div className={styles.item}>
@@ -167,6 +169,11 @@ const AddCar = (props) => {
                                 <InputAddCarItem
                                     name='phoneNumber'
                                     label='Phone number of seller'
+                                    errors={errors}
+                                    touched={touched} />
+                                <InputAddCarItem
+                                    name='img'
+                                    label='URL for image'
                                     errors={errors}
                                     touched={touched} />
                             </div>

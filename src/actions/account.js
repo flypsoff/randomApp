@@ -1,14 +1,19 @@
 import {
     CNANGE_FIELD,
-    ADD_POST
+    ADD_POST,
+    DELETED_POST
 } from './../constants'
 
 import {
     changeAPI,
     changeEmailAPI,
     changePasswordAPI,
-    deleteAccountAPI
+    deleteAccountAPI,
 } from './../api/accountAPI'
+
+import {
+    deletePostAPI
+} from './../api/carsAPI'
 
 import {
     startLoading,
@@ -73,7 +78,18 @@ export const deleteAccountThunk = () => async (dispatch) => {
     } catch (e) {
         console.log(e.response.data.message)
     }
-
 }
 
 export const addPost = (payload) => ({ type: ADD_POST, payload})
+
+export const deletedPost = (payload) => ({ type: DELETED_POST, payload})
+export const deletePostThunk = (carID) => async (dispatch) => {
+    try {
+        const res = await deletePostAPI(carID)
+        dispatch(deletedPost(res.data.deletedPost))
+        return { message: res.data.message }
+    } catch (e) {
+        console.log(e.response.data.message)
+    }
+
+}

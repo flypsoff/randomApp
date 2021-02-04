@@ -23,4 +23,7 @@ export const LOGOUT = 'LOGOUT'
 
 
 export const CNANGE_FIELD = 'CNANGE_FIELD'
+
+
 export const ADD_POST = 'ADD_POST'
+export const DELETED_POST = 'DELETED_POST'

@@ -2,7 +2,8 @@ import {
     SET_USER,
     LOGOUT,
     CNANGE_FIELD,
-    ADD_POST
+    ADD_POST,
+    DELETED_POST
 } from '../constants'
 
 let initialState = {
@@ -42,6 +43,14 @@ const user = (state = initialState, action) => {
                         action.payload,
                         ...state.currentUser.posts
                     ]
+                }
+            }
+        case DELETED_POST: 
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    posts: action.payload
                 }
             }
         default:

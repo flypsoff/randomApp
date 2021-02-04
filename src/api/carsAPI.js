@@ -26,3 +26,10 @@ export const addCarAPI = (car) => {
         headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
 }
+
+export const deletePostAPI = (carID) => {
+    return carsAPI.patch('/deletecar', {carID}, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+    }})
+}
